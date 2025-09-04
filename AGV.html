@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Generic - Solid State by HTML5 UP</title>
+		<title>Project : AUTOMAMA</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -19,7 +19,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1><a href="index.html">Solid State</a></h1>
+						<h1><a href="index.html">Project : AUTOMAMA</a></h1>
 						<nav>
 							<a href="#menu">Menu</a>
 						</nav>
@@ -31,10 +31,10 @@
 							<h2>Menu</h2>
 							<ul class="links">
 								<li><a href="index.html">Home</a></li>
-								<li><a href="generic.html">Generic</a></li>
-								<li><a href="elements.html">Elements</a></li>
-								<li><a href="#">Log In</a></li>
-								<li><a href="#">Sign Up</a></li>
+								<li><a href="#wrapper">Projects</a></li>
+								<li><a href="#four">Minor Projects</a></li>
+								<li><a href="#footer">Contact</a></li>
+								<li><a href="elements.html">elements</a></li>
 							</ul>
 							<a href="#" class="close">Close</a>
 						</div>
@@ -45,7 +45,7 @@
 						<header>
 							<div class="inner">
 								<h2>Autonoumous ground vehicle system </h2>
-								<p>book online - give location - travel seamlessly - 24/7 service - SOC update from cloud</p>
+								<p>Campus TAXI - book online - give location - travel seamlessly - Battery SOC update from cloud</p>
 							</div>
 						</header>
 
@@ -54,9 +54,43 @@
 								<div class="inner">
 
 									<h3 class="major">Technical Highlights</h3>
-									<p>Our autonomous campus taxi system offers seamless, eco-friendly transportation for students across the campus. With a user-friendly online booking platform, students can easily reserve seats and specify their pickup and drop-off locations within the campus vicinity. The system is designed to operate efficiently, providing round-the-clock service, ensuring students have access to convenient transport at all hours. The autonomous vehicles are equipped with advanced navigation systems that allow them to travel safely and smoothly through designated campus routes, offering a stress-free and efficient way to commute.</p>
+									<!-- Technical Highlights with side-by-side layout -->
+										<div class="tech-highlights">
 
-									<p>The system intelligently monitors the state of charge (SOC) of each vehicle's battery. Once the SOC reaches a certain threshold, the vehicle autonomously halts its service and drives itself to the charging station for replenishment. This ensures that the taxis are always available in optimal condition, minimizing downtime and maximizing service reliability. By combining cutting-edge autonomous driving technology with sustainable energy management, our campus taxi system provides a practical, efficient, and environmentally friendly transportation solution tailored to meet the unique needs of students and staff.</p>
+											<img src="images/drone flow.png" alt="Ad-Deen Mahbub" class="highlight-img" />
+
+											<p>
+												Automama is our in-house Autonomous Ground Vehicle (AGV) project, designed to transform 
+												a custom-built electric vehicle (EV) into a fully programmable robotic platform. 
+												The EV chassis was enhanced with sensor feedback systems for <strong>braking, steering, 
+												and acceleration</strong>, enabling complete drive-by-wire control.
+											</p>
+
+											<h3>Perception Pipeline</h3>
+											<p>
+												We integrated a <strong>stereo vision system</strong> using an IMX219 stereo camera pair. 
+												Frames from the left camera were first processed through a 
+												<strong>YOLOv8n-Segmentation model</strong> to segment roads and obstacles. 
+												The segmentation masks guided <strong>stereo depth estimation</strong>, 
+												allowing us to obtain precise depth information for both drivable areas and obstacles.
+											</p>
+
+											<h3>Mapping & Navigation</h3>
+											<p>
+												Using the depth maps, we constructed a <strong>2D occupancy grid</strong> of the road. 
+												A custom local planner was developed to detect and follow the <strong>largest navigable gap</strong> 
+												in real time, ensuring safe short-term path planning. This approach allows Automama to 
+												react dynamically to changing environments.
+											</p>
+
+											<h3>Future Goals</h3>
+											<p>
+												Our long-term vision is to map the entire <strong>university campus</strong> and build 
+												a global planner on top of the local navigation system. By integrating 
+												<strong>visual odometry</strong> for localization, Automama will eventually 
+												achieve seamless autonomous navigation across large-scale outdoor environments.
+											</p>
+										</div>
 
 									<h3 class="major">snapshots of the progress</h3>
 									<p>We have a step by step documentation of our project in the following sections. Feel free to dive deep into our documentation in the github links however you like !</p>
