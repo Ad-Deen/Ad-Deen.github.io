@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Generic - Solid State by HTML5 UP</title>
+		<title>Project ORCA</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -19,7 +19,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1><a href="index.html">Solid State</a></h1>
+						<h1><a href="index.html">Project ORCA</a></h1>
 						<nav>
 							<a href="#menu">Menu</a>
 						</nav>
@@ -86,44 +86,58 @@
 									</p>
 									<section class="features">
 										<article>
-											<a href="https://github.com/Ad-Deen/AGV-Project-Automama-Simulation-Stack.git" class="image">
-												<video src="images/orca_sim.webm" autoplay loop muted playsinline></video>
+											<a href="https://github.com/Ad-Deen/AUV-project-Simulation-Stack" class="image">
+												<video src="images/orca_sim.webm" autoplay loop muted playsinline style="width:100%; height:auto;"></video>
 											</a>
 											<h3 class="major"> A : Simulation  Stack</h3>
 											<p>
-												To enable safe, repeatable, and low-cost testing of the autonomous system, we 
-												developed a custom Gazebo simulation environment that replicates our university 
-												campus. This simulated world is used to test and validate Automama’s full 
-												autonomous stack, including point-to-point navigation, control, and perception 
-												modules.
+												We developed a <strong>custom simulation environment</strong> for ORCA in both 
+												Gazebo and NVIDIA Isaac Sim. The underwater world was first designed in Blender, 
+												then physics and hydrodynamics were applied in Gazebo to realistically simulate 
+												water behavior. Using ROS, we tested the ORCA control architecture within this 
+												environment and integrated simulated visual feedback to validate our navigation 
+												stack before deploying it on the physical AUV.
 											</p>
-											<a href="https://github.com/Ad-Deen/AGV-Project-Automama-Simulation-Stack.git" class="special">Learn more</a>
+											<a href="https://github.com/Ad-Deen/AUV-project-Simulation-Stack" class="special">Learn more</a>
 										</article>
 										<article>
-											<a href="https://github.com/Ad-Deen/AGV-Project-Automama-Mechanical-Stack.git" class="image"><img src="images/mechanical stack.gif" alt="" /></a>
+											<a href="https://github.com/Ad-Deen/AUV-project-mechanical_design" class="image">
+												<video src="images/orca_mech.mp4" autoplay loop muted playsinline></video>
+											</a>
 											<h3 class="major"> B : Mechanical Stack</h3>
 											<p>
-												Building the electrical control stack on top of proper mechanical stack was a big
-												milestone in our initial work. We customized the control algorithm to throttle and
-												steer seamlessly.
+												The ORCA AUV’s mechanical design evolved through iterative improvements focusing on 
+												<strong>buoyancy, stability, and maneuverability</strong>. Initial aluminum frames 
+												required excessive counterweights, leading to high inertia and energy consumption. 
+												In Version 2, we optimized the 3D-printed PETG frame, integrated a <strong>variable 
+												center-of-gravity system</strong>, and designed modular electronics chambers, 
+												achieving near <strong>neutral buoyancy</strong> and improved underwater control. 
+												Additionally, a custom <strong>6-DOF manipulator</strong> was developed for precise 
+												underwater interactions, making the AUV both robust and versatile for autonomous 
+												operations.
 											</p>
-											<a href="https://github.com/Ad-Deen/AGV-Project-Automama-Mechanical-Stack.git" class="special">Learn more</a>
+											<a href="https://github.com/Ad-Deen/AUV-project-mechanical_design" class="special">Learn more</a>
 										</article>
 										<article>
-											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
+											<a href="https://github.com/Ad-Deen/AUV-project-Electrical-stack" class="image"><img src="images/orca_electric.gif" alt="" /></a>
 											<h3 class="major"> C : Electrical Stack</h3>
 											<p>
-												Big achievement in our part where we developed a custom data set for bangladesh to 
-												generalize the vision model to work in roads. Segments objects in real time for the 
-												bot's perception.
+												The ORCA AUV’s electrical system is designed for <strong>robust underwater operation</strong>, 
+												integrating two 4S Li-ion batteries with modular buck converters to supply power for 
+												ESCs, ESP32 controllers, and the Jetson Nano. Dual ESP32s manage <strong>thruster 
+												control, sensors, and manipulator actuation</strong>, communicating with the 
+												Jetson Nano over UART for real-time decision-making. A custom PCB handles 
+												<strong>high-current power distribution, relay isolation, and compact logic 
+												integration</strong>, ensuring efficient, reliable, and modular electronics 
+												for autonomous underwater navigation.
 											</p>
-											<a href="#" class="special">Learn more</a>
+											<a href="https://github.com/Ad-Deen/AUV-project-Electrical-stack" class="special">Learn more</a>
 										</article>
 										<article>
-											<a href="https://github.com/Ad-Deen/AGV-Project_Automama-Software_stack.git" class="image">
+											<a href="https://github.com/Ad-Deen/AUV-project-Simulation-Stack/tree/main/ros2_package_Gazebo/orca" class="image">
 												<video src="images/orca play.mp4" autoplay loop muted playsinline></video>
 											</a>
-											<h3 class="major"> E : Navigation Stack</h3>
+											<h3 class="major"> E : ROS software Stack</h3>
 											<p>
 												Our navigation stack is designed for real-time decision-making with GPU-accelerated 
 												processing. Using DMA and zero-copy memory, sensor data is efficiently streamed to 
@@ -133,24 +147,8 @@
 												and dynamic constraints so that the planned trajectory remains feasible for the 
 												AGV’s steering, braking, and acceleration limits.
 											</p>
-											<a href="https://github.com/Ad-Deen/AGV-Project_Automama-Software_stack.git" class="special">Learn more</a>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-											<h3 class="major"> F : Visual odometry</h3>
-											<p>
-												Work on going
-											</p>
-											<a href="#" class="special">Learn more</a>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-											<h3 class="major"> G : Global mapping & Localisation</h3>
-											<p>
-												Work on going
-											</p>
-											<a href="#" class="special">Learn more</a>
-										</article>
+											<a href="https://github.com/Ad-Deen/AUV-project-Simulation-Stack/tree/main/ros2_package_Gazebo/orca" class="special">Learn more</a>
+					
 									</section>
 
 								</div>
