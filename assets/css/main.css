@@ -2800,7 +2800,16 @@ input, select, textarea {
 			}
 
 		}
+		.tech-highlights {
+		position: relative;
+		}
 
+		.highlight-img {
+		float: right;          /* Push image to right side */
+		width: 75%;            /* Image takes more width */
+		margin: 0 0 1em 1.5em; /* Gap between text & image */
+		border-radius: 12px;   /* Optional styling */
+		}
 /* Table */
 
 	.table-wrapper {
