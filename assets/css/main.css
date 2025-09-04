@@ -2811,7 +2811,13 @@ input, select, textarea {
 		border-radius: 12px;   /* Optional styling */
 		}
 /* Table */
-
+	.image video {
+    width: 100%;       /* fill container width */
+    max-width: 450px;  /* maximum width you want */
+    height: auto;      /* maintain aspect ratio */
+    border-radius: 8px; /* optional, makes edges rounded like images */
+    display: block;    /* removes inline spacing issues */
+	}
 	.table-wrapper {
 		-webkit-overflow-scrolling: touch;
 		overflow-x: auto;
