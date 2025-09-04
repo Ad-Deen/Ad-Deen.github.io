@@ -57,7 +57,8 @@
 									<!-- Technical Highlights with side-by-side layout -->
 										<div class="tech-highlights">
 
-											<img src="images/drone flow.png" alt="Ad-Deen Mahbub" class="highlight-img" />
+											<img src="images/Automama_nav.png" alt="Ad-Deen Mahbub" class="highlight-img" style="width: 50%;" />
+
 
 											<p>
 												Automama is our in-house Autonomous Ground Vehicle (AGV) project, designed to transform 
@@ -93,19 +94,93 @@
 										</div>
 
 									<h3 class="major">snapshots of the progress</h3>
-									<p>We have a step by step documentation of our project in the following sections. Feel free to dive deep into our documentation in the github links however you like !</p>
+									<p>
+										We have a step by step documentation of our project in the following sections. 
+										Feel free to dive deep into our documentation in the github links however you 
+										like !
+									</p>
 
 									<section class="features">
 										<article>
-											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-											<h3 class="major">A0 : Building the EV</h3>
-											<p>Building the electrical control stack on top of proper mechanical stack was a big milestone in our initial work. We customized the control algorithm to throttle and steer seamlessly.</p>
+											<a href="https://github.com/Ad-Deen/AGV-Project-Automama-Simulation-Stack.git" class="image">
+												<video src="images/automama_sim_compressed.webm" autoplay loop muted playsinline></video>
+											</a>
+											<h3 class="major"> A : Simulation  Stack</h3>
+											<p>
+												To enable safe, repeatable, and low-cost testing of the autonomous system, we 
+												developed a custom Gazebo simulation environment that replicates our university 
+												campus. This simulated world is used to test and validate Automama’s full 
+												autonomous stack, including point-to-point navigation, control, and perception 
+												modules.
+											</p>
+											<a href="https://github.com/Ad-Deen/AGV-Project-Automama-Simulation-Stack.git" class="special">Learn more</a>
+										</article>
+										<article>
+											<a href="https://github.com/Ad-Deen/AGV-Project-Automama-Mechanical-Stack.git" class="image"><img src="images/mechanical stack.gif" alt="" /></a>
+											<h3 class="major"> B : Mechanical Stack</h3>
+											<p>
+												Building the electrical control stack on top of proper mechanical stack was a big
+												milestone in our initial work. We customized the control algorithm to throttle and
+												steer seamlessly.
+											</p>
+											<a href="https://github.com/Ad-Deen/AGV-Project-Automama-Mechanical-Stack.git" class="special">Learn more</a>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
+											<h3 class="major"> C : Electrical Stack</h3>
+											<p>
+												Big achievement in our part where we developed a custom data set for bangladesh to 
+												generalize the vision model to work in roads. Segments objects in real time for the 
+												bot's perception.
+											</p>
+											<a href="#" class="special">Learn more</a>
+										</article>
+										<article>
+											<a href="https://github.com/Ad-Deen/AGV-Project_Automama-Software_stack/tree/main/automama/automama/perception" class="image">
+												<video src="images/stereo vision working demo_compressed.mp4" autoplay loop muted playsinline></video>
+											</a>
+											<h3 class="major"> D : Perception Stack</h3>
+											<p>
+												Our AGV’s perception stack combines stereo vision and deep learning to interpret the 
+												driving environment. A YOLOv8n-Seg model processes the left camera feed to identify 
+												road regions and obstacles, while stereo depth estimation generates distance 
+												information for these segmented areas. The depth data is projected into a 2D 
+												occupancy grid, enabling the vehicle to detect free space and plan paths by following
+												 the largest gap. This local perception system is integrated with visual odometry to 
+												 support global mapping and navigation across the campus.
+											</p>
+											<a href="https://github.com/Ad-Deen/AGV-Project_Automama-Software_stack/tree/main/automama/automama/perception" class="special">Learn more</a>
+										</article>
+										<article>
+											<a href="https://github.com/Ad-Deen/AGV-Project_Automama-Software_stack.git" class="image">
+												<video src="images/auto_run_compressed.mp4" autoplay loop muted playsinline></video>
+											</a>
+											<h3 class="major"> E : Navigation Stack</h3>
+											<p>
+												Our navigation stack is designed for real-time decision-making with GPU-accelerated 
+												processing. Using DMA and zero-copy memory, sensor data is efficiently streamed to 
+												the GPU for parallel computation. A potential fields method guides trajectory 
+												generation by balancing attraction toward the goal and repulsion from obstacles, 
+												ensuring smooth and collision-free paths. On top of this, we apply vehicle kinematic 
+												and dynamic constraints so that the planned trajectory remains feasible for the 
+												AGV’s steering, braking, and acceleration limits.
+											</p>
+											<a href="https://github.com/Ad-Deen/AGV-Project_Automama-Software_stack.git" class="special">Learn more</a>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
+											<h3 class="major"> F : Visual odometry</h3>
+											<p>
+												Work on going
+											</p>
 											<a href="#" class="special">Learn more</a>
 										</article>
 										<article>
 											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-											<h3 class="major">B0 : real time segmentation model</h3>
-											<p>Big achievement in our part where we developed a custom data set for bangladesh to generalize the vision model to work in roads. Segments objects in real time for the bot's perception.</p>
+											<h3 class="major"> G : Global mapping & Localisation</h3>
+											<p>
+												Work on going
+											</p>
 											<a href="#" class="special">Learn more</a>
 										</article>
 									</section>

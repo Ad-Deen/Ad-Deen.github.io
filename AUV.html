@@ -52,52 +52,105 @@
 						<!-- Content -->
 							<div class="wrapper">
 								<div class="inner">
-
 									<h3 class="major">Technical Highlights</h3>
-									<p>Our autonomous underwater vehicle (AUV) is engineered to dive deep into the ocean, enabling efficient and accurate exploration of underwater environments. Equipped with advanced sonar, imaging, and navigation systems, the AUV autonomously surveys vast areas of the aquatic ecosystem, capturing critical data about marine life, water quality, and geological formations. It can map the seabed with precision, identifying underwater features and topography in real-time, offering a detailed view of otherwise inaccessible oceanic regions. Its intelligent system allows it to navigate complex underwater terrains autonomously, adapting to environmental challenges while collecting valuable data.</p>
+									<div class="tech-highlights">
 
-									<p>The AUV is specifically designed to hunt for underwater resources, such as minerals, hydrocarbons, or archaeological artifacts. It is a versatile tool for oil and gas exploration, marine research, and environmental conservation. Its autonomous operation minimizes human intervention, reducing operational costs while increasing safety in challenging deep-sea conditions. By providing a continuous and comprehensive underwater survey, our AUV technology offers a more sustainable and efficient way to monitor and manage the ocean's vast resources, contributing to scientific discoveries and responsible resource utilization.</p>
+										<img src="images/orca_flow.png" alt="Ad-Deen Mahbub" class="highlight-img" style="width: 65%;" />
 
+
+										<p>
+											ORCA is our in-house Autonomous Underwater Vehicle (AUV) project, designed as a robust, neutral-buoyant platform for underwater exploration. 
+											We built the <strong>AUV frame and hull</strong>, assembled the electronics inside the hull, and carefully designed the structure to maintain near-neutral buoyancy. 
+											A custom <strong>buoyancy control box</strong> and a <strong>variable center-of-gravity (COG) mechanism</strong> allow fine adjustments for stable underwater operation while housing the thrusters and sensors securely.
+										</p>
+
+										<h3>Control & Perception</h3>
+										<p>
+											The AUV uses a <strong>Jetson Nano</strong> for high-level control, including visual perception, sensor fusion, and actuation decision-making. 
+											A dedicated <strong>ESP32 module</strong> executes low-level thruster commands, receives sensor feedback, and relays data back to the Jetson in real-time. 
+											This separation of high- and low-level control ensures precise maneuvering and responsive control loops.
+										</p>
+
+										<h3>Testing & Limitations</h3>
+										<p>
+											While we could not access a clear water environment for autonomous testing, the ORCA system functions as a fully tethered ROV, 
+											controlled via Ethernet from a laptop. The ROV setup allowed verification of sensor readings, thruster responsiveness, and telemetry. 
+											Overall, the design demonstrates a near-neutral buoyant platform capable of supporting future autonomous operations with minimal manual intervention.
+										</p>
+									</div>
 									<h3 class="major">snapshots of the progress</h3>
-									<p>We have a step-by-step documentation of our project in the following sections. Feel free to dive deep into our documentation in the github links however you like !</p>
-
+									<p>
+										We have a step by step documentation of our project in the following sections. 
+										Feel free to dive deep into our documentation in the github links however you 
+										like !
+									</p>
 									<section class="features">
 										<article>
-											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-											<h3 class="major">A : Mechanical Stack</h3>
-											<p>We designed our HULL to perfectly accommodate all electrical and power system components in the cylindrical structure.</p>
-											<a href="https://github.com/Ad-Deen/AUV-project-mechanical_design.git">Learn more</a>
+											<a href="https://github.com/Ad-Deen/AGV-Project-Automama-Simulation-Stack.git" class="image">
+												<video src="images/orca_sim.webm" autoplay loop muted playsinline></video>
+											</a>
+											<h3 class="major"> A : Simulation  Stack</h3>
+											<p>
+												To enable safe, repeatable, and low-cost testing of the autonomous system, we 
+												developed a custom Gazebo simulation environment that replicates our university 
+												campus. This simulated world is used to test and validate Automama’s full 
+												autonomous stack, including point-to-point navigation, control, and perception 
+												modules.
+											</p>
+											<a href="https://github.com/Ad-Deen/AGV-Project-Automama-Simulation-Stack.git" class="special">Learn more</a>
+										</article>
+										<article>
+											<a href="https://github.com/Ad-Deen/AGV-Project-Automama-Mechanical-Stack.git" class="image"><img src="images/mechanical stack.gif" alt="" /></a>
+											<h3 class="major"> B : Mechanical Stack</h3>
+											<p>
+												Building the electrical control stack on top of proper mechanical stack was a big
+												milestone in our initial work. We customized the control algorithm to throttle and
+												steer seamlessly.
+											</p>
+											<a href="https://github.com/Ad-Deen/AGV-Project-Automama-Mechanical-Stack.git" class="special">Learn more</a>
 										</article>
 										<article>
 											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-											<h3 class="major">B : Electrical Stack</h3>
-											<p>We carefully selected the components to power and wire all circuits properly inside the cylindrical space, reducing potential strain and electrical faults.</p>
+											<h3 class="major"> C : Electrical Stack</h3>
+											<p>
+												Big achievement in our part where we developed a custom data set for bangladesh to 
+												generalize the vision model to work in roads. Segments objects in real time for the 
+												bot's perception.
+											</p>
+											<a href="#" class="special">Learn more</a>
+										</article>
+										<article>
+											<a href="https://github.com/Ad-Deen/AGV-Project_Automama-Software_stack.git" class="image">
+												<video src="images/orca play.mp4" autoplay loop muted playsinline></video>
+											</a>
+											<h3 class="major"> E : Navigation Stack</h3>
+											<p>
+												Our navigation stack is designed for real-time decision-making with GPU-accelerated 
+												processing. Using DMA and zero-copy memory, sensor data is efficiently streamed to 
+												the GPU for parallel computation. A potential fields method guides trajectory 
+												generation by balancing attraction toward the goal and repulsion from obstacles, 
+												ensuring smooth and collision-free paths. On top of this, we apply vehicle kinematic 
+												and dynamic constraints so that the planned trajectory remains feasible for the 
+												AGV’s steering, braking, and acceleration limits.
+											</p>
+											<a href="https://github.com/Ad-Deen/AGV-Project_Automama-Software_stack.git" class="special">Learn more</a>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
+											<h3 class="major"> F : Visual odometry</h3>
+											<p>
+												Work on going
+											</p>
 											<a href="#" class="special">Learn more</a>
 										</article>
 										<article>
 											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-											<h3 class="major">C : Perception Stack</h3>
-											<p>Different sensors perceive the robot's state differently. Starting with IMU, Depth sensor, 2 Camera mounted in front side and another on the gripper base</p>
-											<a href="https://github.com/Ad-Deen/AUV_project_Perception_stack.git">Learn more</a>
-<!-- 										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-											<h3 class="major">D : Localization</h3>
-											<p>We carefully selected the components to power and wire all circuits properly inside the cylindrical space reducing potential strain and electrical faults.</p>
+											<h3 class="major"> G : Global mapping & Localisation</h3>
+											<p>
+												Work on going
+											</p>
 											<a href="#" class="special">Learn more</a>
 										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-											<h3 class="major">E : Mapping</h3>
-											<p>We carefully selected the components to power and wire all circuits properly inside the cylindrical space reducing potential strain and electrical faults.</p>
-											<a href="#" class="special">Learn more</a>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-											<h3 class="major">D : Navigation</h3>
-											<p>We carefully selected the components to power and wire all circuits properly inside the cylindrical space reducing potential strain and electrical faults.</p>
-											<a href="#" class="special">Learn more</a>
-										</article> -->
 									</section>
 
 								</div>
