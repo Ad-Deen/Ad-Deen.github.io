@@ -60,26 +60,13 @@
 								<img src="images/drone flow.png" alt="Ad-Deen Mahbub" class="highlight-img" />
 
 								<p>
-									Our innovative swarm drone system is designed to autonomously scan and map 
-									complex environments with precision. Each drone in the swarm collaborates to 
-									efficiently cover large areas, scanning terrain and objects using advanced 
-									sensors. The system then reconstructs a detailed 3D map of the scanned area 
-									in real-time, providing accurate spatial information for various applications 
-									such as surveillance, search and rescue, and environmental monitoring. In 
-									addition to mapping, the drones are equipped with object detection and tracking 
-									capabilities, allowing them to monitor and follow moving objects within the 
-									environment seamlessly.
-								</p>
-
-								<p>
-									The drones are programmed with intelligent energy management, automatically 
-									returning to the docking station when battery levels are low. Once docked, they 
-									recharge autonomously on the designated pad, ready to continue their mission 
-									once fully charged. This self-sustaining system ensures uninterrupted operation
-									with minimal human intervention, making it ideal for tasks requiring long-duration 
-									monitoring or continuous environmental data collection. The swarm system's ability 
-									to work collaboratively, navigate autonomously, and maintain operational efficiency 
-									sets it apart as a cutting-edge solution in aerial robotics.
+									Our swarm drone system enables autonomous 3D mapping and navigation using stereo vision. 
+									Each drone captures stereo frames that are processed on a ground PC to generate depth, 
+									extract 2D/3D features, and estimate odometry using frame-to-frame matching and PnP. 
+									The navigation stack uses this odometry and the evolving map to issue short-term commands 
+									(e.g., “fly up 30 cm”), allowing the drone to build the environment model while navigating in real time. 
+									This pipeline enables robust, self-updating 3D world reconstruction and short-horizon autonomy, 
+									suitable for search, rescue, and large-area inspection tasks.
 								</p>
 							</div>
 
@@ -90,8 +77,15 @@
 							<section class="features">
 								<article>
 								<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-								<h3 class="major">A0 : Flight Controller Design</h3>
-								<p>Our first milestone of our big project. We designed our flight control system based on MEMS sensor feedback.</p>
+								<h3 class="major">A : Custom Flight Controller Design</h3>
+								<p>
+									Due to limited funding, I developed a low-cost custom flight controller on an ESP32 module. 
+									I selected the ESP32 as the base platform since it has built-in Wi-Fi enabled communication system, 
+									eliminating the need for additional Visual/telemetry transmitter and receiver modules. This also 
+									helped minimize power consumption during flight. I integrated sensor interfaces for IMU, GPS, 
+									motor controllers, and camera, and built the firmware from scratch. The design was open-sourced 
+									on GitHub to support other researchers working on UAV projects under tight budgets.
+								</p>
 								<a href="#" class="special">Learn more</a>
 								</article>
 								<article>
