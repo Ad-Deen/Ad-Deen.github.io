@@ -76,10 +76,59 @@
 
 							<section class="features">
 								<article>
+									<a href="https://github.com/Ad-Deen/UAV-Project-Bee-Simulations/blob/main/bee/scripts/README.md" class="image">
+										<video src="images/Flight stabiliation in simulation.webm" autoplay loop muted playsinline></video>
+									</a>
+									<h3 class="major">A : Custom Flight Controller Testing for waypoint based Navigation</h3>
+									<p>
+										I designed and implemented a lightweight custom flight controller for UAV stabilization and navigation. 
+										The system includes PID-based stabilization loops, teleoperation via ROS 2, and prototype autonomous 
+										control pipelines tested in Gazebo simulation. This allowed rapid experimentation with control 
+										strategies while keeping the design modular and open-source for further research. In the controller it takes a limits
+										of way points and based on odometry it tries to reach the goal keeping balance and accuracy avoiding overshoot.
+									</p>
+									<a href="https://github.com/Ad-Deen/UAV-Project-Bee-Simulations/blob/main/bee/scripts/README.md" class="special">Learn more</a>
+								</article>
+
+
+								<article>
+									<a href="https://github.com/Ad-Deen/UAV-Project-Bee-Simulations/blob/main/bee/scripts/Depth-Anything-V2/README.md" class="image">
+										<video src="images/depth_compressed.mp4" autoplay loop muted playsinline></video>
+									</a>
+									<h3 class="major">B : Monocular Depth Estimation Pipeline</h3>
+									<p>
+										To enable real-time 3D scene understanding during drone flights, I integrated the Depth Anything V2 
+										model into a server-based pipeline. Video frames captured onboard the UAV are transmitted to the server, 
+										where dense depth maps are generated in real time. These depth estimations are used for scene reconstruction, 
+										odometry, and SLAM integration, allowing robust navigation in GPS-denied environments. The pipeline was designed 
+										to run efficiently on edge-GPU servers for seamless deployment in field operations.
+									</p>
+									<a href="https://github.com/Ad-Deen/UAV-Project-Bee-Simulations/blob/main/bee/scripts/Depth-Anything-V2/README.md" class="special">Learn more</a>
+								</article>
+
+
+								<article>
+									<a href="https://github.com/Ad-Deen/UAV-Project-Bee-Simulations/blob/main/bee/sfm_practice/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_1/README.md" class="image">
+										<video src="images/sfm demo.mp4" autoplay loop muted playsinline></video>
+									</a>
+									<h3 class="major">C : Structure-from-Motion & Visual Odometry</h3>
+									<p>
+										This pipeline focuses on reconstructing 3D structures and estimating UAV motion using 
+										camera-only input. By leveraging feature extraction, triangulation, and bundle adjustment, 
+										the system builds consistent 3D maps from monocular image sequences. Visual Odometry 
+										is integrated to track drone position across frames, enabling localization without 
+										dependence on GPS. These techniques form the backbone of visual SLAM, helping UAVs 
+										operate in GPS-denied or cluttered environments with improved autonomy.
+									</p>
+									<a href="https://github.com/Ad-Deen/UAV-Project-Bee-Simulations/blob/main/bee/sfm_practice/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure%201/README.md" class="special">Learn more</a>
+								</article>
+
+
+								<article>
 									<a href="https://github.com/Ad-Deen/UAV-Project-Bee-Custom-Made-Flight-Controller.git" class="image">
 										<video src="images/bee1_compressed.mp4" autoplay loop muted playsinline></video>
 									</a>
-									<h3 class="major">A : Custom Flight Controller Design</h3>
+									<h3 class="major">C : Custom Flight Controller Practical implementation</h3>
 									<p>
 										Due to limited funding, I developed a low-cost custom flight controller on an ESP32 module. 
 										I selected the ESP32 as the base platform since it has built-in Wi-Fi enabled communication system, 
@@ -90,6 +139,8 @@
 									</p>
 									<a href="https://github.com/Ad-Deen/UAV-Project-Bee-Custom-Made-Flight-Controller.git" class="special">Learn more</a>
 								</article>
+
+
 								<article>
 								<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
 								<h3 class="major">B : Stereo Vision System Setup</h3>
