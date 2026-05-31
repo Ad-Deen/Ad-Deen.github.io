@@ -1,0 +1,572 @@
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+:root {
+    --primary-blue: #2563eb;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --bg-light: #f8fafc;
+    --white: #ffffff;
+    --border: #e2e8f0;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+/* =========================================
+   2. NAVIGATION
+   ========================================= */
+nav {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.brand { 
+    font-weight: 800; 
+    letter-spacing: -1px; 
+    font-size: 1.2rem;
+}
+
+.brand span { 
+    color: var(--primary-blue); 
+}
+
+.nav-links a { 
+    text-decoration: none; 
+    color: var(--text-muted); 
+    font-family: var(--font-mono); 
+    font-size: 0.8rem; 
+    margin-left: 2rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-blue);
+}
+
+/* =========================================
+   3. HERO SECTION & BUTTONS
+   ========================================= */
+.hero {
+    padding: 8rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.eyebrow { 
+    font-family: var(--font-mono); 
+    color: var(--primary-blue); 
+    font-weight: 600; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h1 { 
+    font-size: 3.5rem; 
+    letter-spacing: -2px; 
+    margin: 1rem 0; 
+    font-weight: 800; 
+    line-height: 1.1;
+}
+
+.blue-text { 
+    color: var(--primary-blue); 
+}
+
+.hero p { 
+    font-size: 1.2rem; 
+    color: var(--text-muted); 
+    margin-bottom: 2rem; 
+}
+
+.btn-primary {
+    background: var(--primary-blue);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    display: inline-block;
+    transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+/* =========================================
+   4. PROJECTS SECTION
+   ========================================= */
+.section-label { 
+    font-family: var(--font-mono); 
+    font-size: 1rem; 
+    border-bottom: 2px solid var(--text-main); 
+    display: inline-block; 
+    padding-bottom: 5px; 
+    margin-bottom: 3rem; 
+}
+
+.project-card {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    margin-bottom: 8rem;
+    align-items: center;
+}
+
+.project-card.reverse { 
+    direction: rtl; 
+}
+
+.project-card.reverse .project-info { 
+    direction: ltr; 
+}
+
+.tag-group span {
+    background: #eff6ff; 
+    color: var(--primary-blue);
+    padding: 4px 10px; 
+    font-family: var(--font-mono); 
+    font-size: 0.75rem; 
+    border-radius: 4px; 
+    margin-right: 5px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.video-placeholder {
+    background: #e2e8f0;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    border: 2px dashed var(--border);
+}
+
+.key-points { 
+    padding-left: 1.2rem; 
+    color: var(--text-muted); 
+    font-size: 0.95rem; 
+}
+
+/* =========================================
+   5. SIMULATION / LAB SECTION
+   ========================================= */
+.sim-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.sim-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.sim-item:hover {
+    transform: translateY(-5px);
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.sim-video {
+    background: #0f172a; 
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #38bdf8;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+}
+
+.sim-content { 
+    padding: 1.5rem; 
+}
+
+.sim-content h4 {
+    color: var(--primary-blue);
+    font-family: var(--font-mono);
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+.sim-item.full-width {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    align-items: center;
+}
+
+/* =========================================
+   6. IMPACT & RECOGNITION
+   ========================================= */
+.impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.impact-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-radius: 12px;
+    display: flex;
+    gap: 1.5rem;
+    transition: 0.3s ease;
+}
+
+.impact-card.highlight {
+    border-left: 4px solid var(--primary-blue);
+}
+
+.impact-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transform: translateY(-5px);
+}
+
+.impact-icon {
+    font-size: 2rem;
+}
+
+.funding-list {
+    margin-top: 1rem;
+    padding-left: 1.2rem;
+    color: var(--text-muted);
+}
+
+.funding-list li {
+    margin-bottom: 0.5rem;
+}
+
+/* =========================================
+   7. TECHNICAL REPOSITORIES (CARDS)
+   ========================================= */
+.repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.repo-card {
+    text-decoration: none;
+    color: inherit;
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.repo-card:hover {
+    border-color: var(--primary-blue);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.repo-logo {
+    height: 40px;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 100%;
+    max-width: 120px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.repo-card:hover .logo-img {
+    filter: grayscale(0%);
+}
+
+.repo-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.repo-card h4 {
+    color: var(--text-main);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+.repo-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* =========================================
+   8. MEDIA QUERIES
+   ========================================= */
+@media (max-width: 900px) {
+    h1 { font-size: 2.5rem; }
+    
+    .project-card {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .sim-grid { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .sim-item.full-width { 
+        grid-column: span 1; 
+        grid-template-columns: 1fr; 
+    }
+}
+
+@media (max-width: 768px) {
+    .hero { padding: 4rem 1rem; }
+    
+    .nav-links { display: none; } /* Consider a mobile menu later */
+    
+    .impact-grid { 
+        grid-template-columns: 1fr; 
+    }
+}
+
+/* =========================================
+   EXPERIENCE & TIMELINE
+   ========================================= */
+.timeline {
+    border-left: 2px solid var(--border);
+    padding-left: 2.5rem;
+    margin-left: 1rem;
+    margin-top: 2rem;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3.5rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -2.9rem; /* Aligns the dot perfectly over the border */
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background: var(--bg-light);
+    border: 4px solid var(--primary-blue);
+    border-radius: 50%;
+}
+
+.timeline-date {
+    font-family: var(--font-mono);
+    color: var(--primary-blue);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.timeline-content h3 {
+    margin: 0.2rem 0 0.8rem 0;
+    color: var(--text-main);
+    font-size: 1.25rem;
+}
+
+.timeline-content p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Impact Section Image */
+.impact-image {
+    margin-top: 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.impact-image img {
+    width: 100%;
+    height: auto;
+    max-height: 250px; /* Keeps it from getting too tall */
+    object-fit: cover; /* Ensures the image fills the space beautifully */
+    display: block;
+}
+
+/* =========================================
+   SECONDARY BUTTONS
+   ========================================= */
+.btn-secondary {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    color: var(--primary-blue);
+    background-color: transparent;
+    border: 2px solid var(--primary-blue);
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-blue);
+    color: var(--bg-light); /* Or #ffffff depending on your variables */
+}
+
+/* Optional: Ensure everything aligns nicely in the row */
+.footer-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem; /* Adds even spacing between all items */
+    flex-wrap: wrap;
+}
+
+/* =========================================
+   PROJECT REPO LINKS
+   ========================================= */
+.repo-links-row {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.btn-repo {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    background: var(--bg-light);
+}
+
+.btn-repo:hover {
+    color: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+/* =========================================
+   BIO SECTION
+   ========================================= */
+.bio-grid {
+    display: grid;
+    /* This splits the row: Text gets more space (1.5fr), Image gets less (1fr) */
+    grid-template-columns: 1.5fr 1fr; 
+    gap: 4rem; /* Adds nice breathing room between text and image */
+    align-items: center; /* Vertically centers the image with the text */
+}
+
+.bio-image-container {
+    width: 100%;
+    max-width: 350px; /* Strict size control so it doesn't get massive */
+    margin: 0 auto; /* Centers the image inside its grid column */
+    position: relative;
+}
+
+.profile-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+
+/* Optional: Make the photo backing look good if you are using one */
+.photo-backing {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--primary-blue);
+    border-radius: 12px;
+    z-index: 1;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+@media (max-width: 900px) {
+    .bio-grid {
+        grid-template-columns: 1fr; /* Stacks them on small screens */
+        gap: 2rem;
+    }
+
+    /* Moves the image back to the top for mobile readability */
+    .bio-image-container {
+        order: -1; 
+        max-width: 250px; /* Makes it slightly smaller on phones */
+    }
+}
