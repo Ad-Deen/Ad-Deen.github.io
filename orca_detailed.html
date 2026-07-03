@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project ORCA | Architecture & Milestones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <span class="brand">AM.<span>ROBOTICS</span></span>
+            <div class="nav-links">
+                <a href="index.html"><< BACK TO MAIN PORTFOLIO</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <span class="eyebrow">MARINE ROBOTICS // ARCHITECTURE & MILESTONES</span>
+            <h1>Project <span class="blue-text">ORCA.</span></h1>
+            <p>Autonomous Underwater Vehicle System: Engineered for prolonged operation, seabed mapping, and robust marine exploration.</p>
+        </div>
+    </header>
+
+    <section class="container" data-aos="fade-up">
+        <h2 class="section-label">01 // SYSTEM_ARCHITECTURE</h2>
+        
+        <div class="bio-grid">
+            <div class="bio-text">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Hardware & Control Strategy</h3>
+                <p>
+                    ORCA is an in-house Autonomous Underwater Vehicle (AUV) designed as a neutral-buoyant platform. A custom <strong>buoyancy control box</strong> and a <strong>variable center-of-gravity (COG) mechanism</strong> allow for fine adjustments to maintain stable underwater operation while securely housing thrusters and sensors.
+                </p>
+                <p>
+                    The control architecture is bifurcated: a <strong>Jetson Nano</strong> handles high-level processing (visual perception, sensor fusion, decision-making), while a dedicated <strong>ESP32 module</strong> executes low-level thruster commands and relays real-time sensor feedback. 
+                </p>
+                <p>
+                    Currently, to accommodate testing constraints in turbid environments, the system operates as a fully functional <strong>tethered ROV</strong> controlled via Ethernet. This setup successfully validates sensor readings, thruster responsiveness, and telemetry, proving the platform's capability to support future untethered autonomy.
+                </p>
+            </div>
+
+            <div class="bio-image-container" style="max-width: 500px;">
+                <img src="images/orca_flow.png" alt="ORCA System Flow Diagram" class="profile-photo" style="border: 1px solid var(--border); padding: 1rem; background: var(--white);">
+            </div>
+        </div>
+    </section>
+
+    <main class="container" style="margin-top: 6rem;">
+        <h2 class="section-label">02 // DEVELOPMENT_MILESTONES</h2>
+
+        <article class="project-card" data-aos="fade-up">
+            <div class="project-info">
+                <span class="project-number">A</span>
+                <h3>Mechanical Stack</h3>
+                <div class="tag-group">
+                    <span>PETG Frame</span> <span>Variable COG</span> <span>Neutral Buoyancy</span> <span>6-DOF Manipulator</span>
+                </div>
+                <p class="description">
+                    The mechanical design evolved through iterative improvements focusing on buoyancy, stability, and maneuverability. Replacing heavy aluminum frames, Version 2 utilizes an optimized 3D-printed PETG frame.
+                </p>
+                <p class="description" style="font-size: 0.9rem; color: var(--text-muted);">
+                    Integrated a variable center-of-gravity system and modular electronics chambers to achieve near-neutral buoyancy. A custom 6-DOF manipulator was also developed to enable precise underwater physical interactions.
+                </p>
+            </div>
+            <div class="project-media">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/gaWdo-ZTAwA" title="ORCA Mechanical Stack" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="repo-links-row">
+                    <a href="https://github.com/Ad-Deen/AUV-project-mechanical_design" target="_blank" class="btn-repo">🔗 View Mechanical CAD</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="project-card reverse" data-aos="fade-up">
+            <div class="project-info">
+                <span class="project-number">B</span>
+                <h3>Electrical Stack</h3>
+                <div class="tag-group">
+                    <span>Custom PCB</span> <span>Power Isolation</span> <span>Dual ESP32</span> <span>Li-ion 4S</span>
+                </div>
+                <p class="description">
+                    Designed for robust underwater operation, the electrical system integrates two 4S Li-ion batteries with modular buck converters to supply power across ESCs, ESP32 controllers, and the Jetson Nano.
+                </p>
+                <p class="description" style="font-size: 0.9rem; color: var(--text-muted);">
+                    A custom PCB handles high-current power distribution and relay isolation. Dual ESP32s manage thruster control and manipulator actuation, communicating with the Jetson Nano via UART for real-time edge processing.
+                </p>
+            </div>
+            <div class="project-media">
+                <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; background: #000;">
+                    <img src="images/orca_electric.gif" alt="Electrical Stack Schematic" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="repo-links-row">
+                    <a href="https://github.com/Ad-Deen/AUV-project-Electrical-stack" target="_blank" class="btn-repo">🔗 View Electrical Stack</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="project-card" data-aos="fade-up">
+            <div class="project-info">
+                <span class="project-number">C</span>
+                <h3>Simulation Environment</h3>
+                <div class="tag-group">
+                    <span>Gazebo</span> <span>Isaac Sim</span> <span>Blender</span> <span>Hydrodynamics</span>
+                </div>
+                <p class="description">
+                    Developed a custom underwater simulation environment spanning Gazebo and NVIDIA Isaac Sim. The seabed topology was modeled in Blender, with physics and hydrodynamics applied in Gazebo to replicate water resistance and buoyancy.
+                </p>
+                <p class="description" style="font-size: 0.9rem; color: var(--text-muted);">
+                    This digital twin allowed for the integration and testing of simulated visual feedback, validating the ROS control architecture and navigation stack prior to physical pool deployment.
+                </p>
+            </div>
+            <div class="project-media">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/4a_KJM8MjuE" title="ORCA Simulation Environment" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="repo-links-row">
+                    <a href="https://github.com/Ad-Deen/AUV-project-Simulation-Stack" target="_blank" class="btn-repo">🔗 View Sim Environment</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="project-card reverse" data-aos="fade-up" style="margin-bottom: 2rem;">
+            <div class="project-info">
+                <span class="project-number">D</span>
+                <h3>ROS Software & Navigation Stack</h3>
+                <div class="tag-group">
+                    <span>ROS 2</span> <span>Zero-Copy Memory</span> <span>Potential Fields</span> <span>GPU Accel</span>
+                </div>
+                <p class="description">
+                    Engineered a real-time navigation stack optimized for edge-GPU processing. Sensor data is efficiently streamed to the GPU utilizing DMA and zero-copy memory architecture for parallel computation.
+                </p>
+                <p class="description" style="font-size: 0.9rem; color: var(--text-muted);">
+                    Trajectory generation is driven by a potential fields method—balancing goal attraction and obstacle repulsion. Hard kinematic and dynamic constraints are applied continuously to ensure planned trajectories remain feasible for the AUV’s physical limits.
+                </p>
+            </div>
+            <div class="project-media">
+                <div class="video-wrapper">
+                    <video src="images/orca play.mp4" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+                </div>
+                <div class="repo-links-row">
+                    <a href="https://github.com/Ad-Deen/AUV-project-Simulation-Stack/tree/main/ros2_package_Gazebo/orca" target="_blank" class="btn-repo">🔗 View ROS Packages</a>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <section class="container" data-aos="fade-up" style="margin-top: 6rem; border-top: 1px solid var(--border); padding-top: 4rem; text-align: center;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Get in touch</h2>
+        <p style="max-width: 700px; margin: 0 auto 2rem auto; color: var(--text-muted);">
+            I believe in collective interest over self-interest. I am open to collaborations in meaningful ventures and new ideas. If you are a young enthusiast, reach out—I am always happy to help share knowledge, resources, or guidance however I can.
+        </p>
+        
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="mailto:addeenmahbub@gmail.com" class="btn-primary">addeenmahbub@gmail.com</a>
+            <a href="https://www.linkedin.com/in/ad-deen-mahbub-2bb6211a0/" target="_blank" class="btn-secondary">LinkedIn</a>
+            <a href="https://github.com/Ad-Deen" target="_blank" class="btn-secondary">GitHub</a>
+        </div>
+        
+        <p style="margin-top: 3rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">
+            Location: Sylhet #3110, Bangladesh | (+880) 1915640384
+        </p>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800, once: true });</script>
+</body>
+</html>
