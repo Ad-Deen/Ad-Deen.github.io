@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Bee | Architecture & Milestones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <span class="brand">AM.<span>ROBOTICS</span></span>
+            <div class="nav-links">
+                <a href="index.html"><< BACK TO MAIN PORTFOLIO</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <span class="eyebrow">RaaS FRAMEWORK // ARCHITECTURE & MILESTONES</span>
+            <h1>Project <span class="blue-text">BEE.</span></h1>
+            <p>Autonomous Swarm Robotic Drone System: Fly together – Perceive faster – Report quicker – Reconstruct better – Agile tracking.</p>
+        </div>
+    </header>
+
+    <section class="container" data-aos="fade-up">
+        <h2 class="section-label">01 // TECHNICAL_HIGHLIGHTS</h2>
+        
+        <div class="bio-grid">
+            <div class="bio-text">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">System Architectural Roadmap</h3>
+                
+                <p style="margin-bottom: 1rem;">
+                    <strong>Phase 1: Hardware & Physical Build (Completed)</strong><br>
+                    We have successfully fabricated the physical UAV platform. This includes the integration of a global shutter stereo camera pair and the engineering of a custom made flight controller(no plug and play Px4/Ardupilot systems). The controller features a proprietary optical flow system built exclusively using ESP32-S3 and ESP-CAM modules keeping the unit price cheap.
+                </p>
+                
+                <p style="margin-bottom: 1rem;">
+                    <strong>Phase 2: VSLAM & Simulation (Current Focus)</strong><br>
+                    Before deploying the full Visual-Inertial SLAM (VI-SLAM) stack onto the physical drones, the stereo perception pipeline is being rigorously tested and optimized within <strong>NVIDIA Isaac Sim</strong>. This sim-to-real validation ensures robust depth generation, odometry estimation , and environment mapping prior to live flight operations.
+                </p>
+
+                <p>
+                    <strong>Phase 3: RaaS Ecosystem (Future Target)</strong><br>
+                    The broader, generalized Robotics-as-a-Service (RaaS) infrastructure—encompassing multi-agent coordination, semantic world-modeling, and human-in-the-loop control interfaces—is slated for future development. My objective is to architect and scale this final ecosystem during my upcoming higher education research abroad.
+                </p>
+            </div>
+
+            <div class="bio-image-container" style="max-width: 500px;">
+                <img src="images/drone flow.png" alt="Drone System Flow Diagram" class="profile-photo" style="border: 1px solid var(--border);">
+            </div>
+        </div>
+    </section>
+
+    <main class="container" style="margin-top: 6rem;">
+        <h2 class="section-label">02 // DEVELOPMENT_MILESTONES</h2>
+
+        <!-- ==============================================
+             PHASE 1: HARDWARE & PHYSICAL BUILD
+             ============================================== -->
+        <h3 class="sub-category-label" style="margin-bottom: 2rem; font-family: var(--font-mono); font-size: 1.1rem; opacity: 0.8; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 0.5rem;">
+            >> PHASE 1: HARDWARE & PHYSICAL BUILD
+        </h3>
+
+        <!-- Milestone A -->
+        <article class="project-card" data-aos="fade-up">
+            <div class="project-info">
+                <span class="project-number">A</span>
+                <h3>ESP32 Flight Controller Hardware</h3>
+                <div class="tag-group">
+                    <span>ESP32</span> <span>Firmware</span> <span>Sensor Fusion</span>
+                </div>
+                <p class="description">
+                    Developed a low-cost custom flight controller from scratch on an ESP32 module. The ESP32's built-in Wi-Fi eliminates the need for separate telemetry modules, minimizing weight and power draw.
+                </p>
+                <p class="description" style="font-size: 0.9rem; color: var(--text-muted);">
+                    Integrated interfaces for IMU, GPS, motor controllers, and cameras. The design is open-sourced to support researchers working on hardware-constrained budgets.
+                </p>
+            </div>
+            <div class="project-media">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/lhcwc0164wY" title="ESP32 Flight Controller Hardware" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="repo-links-row">
+                    <a href="https://github.com/Ad-Deen/UAV-Project-Bee-Custom-Made-Flight-Controller.git" target="_blank" class="btn-repo">🔗 View FC Repository</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Milestone B -->
+        <article class="project-card reverse" data-aos="fade-up">
+            <div class="project-info">
+                <span class="project-number">B</span>
+                <h3>Custom OV5640 Stereo Vision Module</h3>
+                <div class="tag-group">
+                    <span>ESP32-S3-CAM</span> <span>OV5640</span> <span>Custom PCB</span> <span>UDP Wi-Fi</span>
+                </div>
+                <p class="description">
+                    Developed a custom-built stereo vision system utilizing dual ESP32-S3-CAM modules with OV5640 sensors mounted on a custom PCB. 
+                </p>
+                <p class="description" style="font-size: 0.9rem; color: var(--text-muted);">
+                    The design enables synchronized frame capture and Wi-Fi-based UDP transmission for real-time reconstruction via ROS 2 on a server. Missing frame chunks are patched using Gaussian interpolation to ensure stream continuity.
+                </p>
+            </div>
+            <div class="project-media">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/IXtHzf5lUfg" title="Custom OV5640 Stereo Vision Module" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="repo-links-row">
+                    <a href="https://github.com/Ad-Deen/UAV-Project-Bee-Stereo-setup.git" target="_blank" class="btn-repo">🔗 View Stereo Setup</a>
+                </div>
+            </div>
+        </article>
+
+
+        <!-- ==============================================
+             PHASE 2: VSLAM & SIMULATION
+             ============================================== -->
+        <h3 class="sub-category-label" style="margin-top: 4rem; margin-bottom: 2rem; font-family: var(--font-mono); font-size: 1.1rem; opacity: 0.8; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 0.5rem;">
+            >> PHASE 2: VSLAM & SIMULATION
+        </h3>
+
+        <!-- Milestone C -->
+        <article class="project-card" data-aos="fade-up">
+            <div class="project-info">
+                <span class="project-number">C</span>
+                <h3>Custom Flight Controller Navigation</h3>
+                <div class="tag-group">
+                    <span>Gazebo / Isaac Sim</span> <span>PID Control</span> <span>ROS 2</span>
+                </div>
+                <p class="description">
+                    Designed and implemented a lightweight custom flight controller for UAV stabilization and navigation. The system includes PID-based stabilization loops, teleoperation via ROS 2, and prototype autonomous control pipelines. 
+                </p>
+                <p class="description" style="font-size: 0.9rem; color: var(--text-muted);">
+                    It takes limits of waypoints and, based on odometry, tries to reach the goal while maintaining balance and avoiding overshoot. This modular approach allows for rapid experimentation with control strategies prior to physical deployment.
+                </p>
+            </div>
+            <div class="project-media">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/L3Ux9woz6sw" title="Custom Flight Controller Navigation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="repo-links-row">
+                    <a href="https://github.com/Ad-Deen/UAV-Project-Bee-Simulations/blob/main/bee/scripts/README.md" target="_blank" class="btn-repo">🔗 View Documentation</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Milestone D -->
+        <article class="project-card reverse" data-aos="fade-up">
+            <div class="project-info">
+                <span class="project-number">D</span>
+                <h3>Monocular Depth Estimation Pipeline</h3>
+                <div class="tag-group">
+                    <span>Depth Anything V2</span> <span>Edge-GPU</span> <span>3D Scene Understanding</span>
+                </div>
+                <p class="description">
+                    To enable real-time 3D scene understanding during flight, I integrated the Depth Anything V2 model into a server-based pipeline. Video frames captured onboard the UAV are transmitted to the server, where dense depth maps are generated in real time.
+                </p>
+                <p class="description" style="font-size: 0.9rem; color: var(--text-muted);">
+                    These estimations feed directly into scene reconstruction, odometry, and SLAM integration, allowing robust navigation in GPS-denied environments.
+                </p>
+            </div>
+            <div class="project-media">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/-MlafHw_S5o" title="Monocular Depth Estimation Pipeline" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="repo-links-row">
+                    <a href="https://github.com/Ad-Deen/UAV-Project-Bee-Simulations/blob/main/bee/scripts/Depth-Anything-V2/README.md" target="_blank" class="btn-repo">🔗 View Pipeline Specs</a>
+                </div>
+            </div>
+        </article>
+        <!-- Milestone E -->
+        <article class="project-card" data-aos="fade-up">
+            <div class="project-info">
+                <span class="project-number">E</span>
+                <h3>Robust Visual-Inertial SLAM (VI-SLAM)</h3>
+                <div class="tag-group">
+                    <span>VI-SLAM</span> <span>IMU Fusion</span> <span>Decoupled Odometry</span> <span>Sparse Mapping</span>
+                </div>
+                <p class="description">
+                    Engineered a custom Visual-Inertial SLAM pipeline, pivoting from standard PnP methods to a decoupled odometry technique fused directly with IMU telemetry.
+                </p>
+                <p class="description" style="font-size: 0.9rem; color: var(--text-muted);">
+                    This sensor fusion approach maintains high robustness even in low-feature environments. By drastically reducing keyframe triggers, the system heavily optimizes map storage memory while relying on a sparse 3D landmark architecture.
+                </p>
+            </div>
+            <div class="project-media">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/uzpwq1EaQws" title="Visual-Inertial SLAM (VI-SLAM)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="repo-links-row">
+                    <!-- Update this href with your specific VSLAM github link if you have one -->
+                    <a href="https://github.com/Ad-Deen/UAV-Project-Bee-Simulations.git" target="_blank" class="btn-repo">🔗 View VSLAM Stack</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Milestone F -->
+        <article class="project-card reverse" data-aos="fade-up">
+            <div class="project-info">
+                <span class="project-number">F</span>
+                <h3>Real-Time Memory-Efficient Nav Map</h3>
+                <div class="tag-group">
+                    <span>SuperPoint / LightGlue</span> <span>O(1) Spatial Hashing</span> <span>Zero-Copy SHM</span> <span>OpenGL / Pangolin</span>
+                </div>
+                <p class="description">
+                    Engineered a hardware-accelerated mapping engine and VIO pipeline for the Deploy & Forget (D&F) prototype. Running on a Jetson Orin Nano using Isaac Sim telemetry, the perception stack leverages SuperPoint, LightGlue, and a DinoV2 backbone to achieve a 3 cm tracking error threshold.
+                </p>
+                <p class="description" style="font-size: 0.9rem; color: var(--text-muted);">
+                    To process dense point clouds without bottlenecking the 60 Hz odometry loop, I built a decoupled voxel engine utilizing O(1) spatial hashing in C++ so RAM scales dynamically with physical volume. It uses Linux Shared Memory (/dev/shm) for zero-copy transport and custom OpenGL geometry shaders to drop CPU rendering overhead to near zero.
+                </p>
+            </div>
+            <div class="project-media">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/D3BgCmA8WsY" title="Real-Time Nav Map & VIO Pipeline" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="repo-links-row">
+                    <a href="https://github.com/Ad-Deen/UAV-Project-Bee-Simulations.git" target="_blank" class="btn-repo">🔗 View Nav Stack Repository</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- ==============================================
+             PHASE 3: ACTIVE INTEGRATION & FUTURE TARGETS
+             ============================================== -->
+        <h3 class="sub-category-label" style="margin-top: 4rem; font-family: var(--font-mono); font-size: 1.1rem; opacity: 0.8; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 0.5rem;">
+            >> PHASE 3: ACTIVE INTEGRATION & RaaS TARGETS
+        </h3>
+
+        <section class="sim-grid" style="margin-top: 2rem; margin-bottom: 6rem;">
+            
+            <div class="sim-item" style="padding: 2rem; display: flex; flex-direction: column;">
+                <h3 style="margin-top: 0;">G: Sim Integration & Autonomous Recharge</h3>
+                <div class="tag-group">
+                    <span style="background: #fef08a; color: #854d0e; font-weight: 600;">Active Development</span>
+                    <span>Isaac Sim</span> <span>Power Sim</span> <span>Obstacle Avoidance</span>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">
+                    Fusing the VIO Nav Map and flight stabilization within a dynamic Isaac Sim warehouse environment. Engineering a control loop that accepts user waypoints, actively computes simulated battery draw, executes dynamic obstacle avoidance, and autonomously returns for a precision landing on a custom recharge station.
+                </p>
+            </div>
+            
+            <div class="sim-item" style="padding: 2rem; display: flex; flex-direction: column;">
+                <h3 style="margin-top: 0;">H: RL Control Integration</h3>
+                <div class="tag-group">
+                    <span style="background: #e2e8f0; color: #475569; font-weight: 600;">Future Target</span>
+                    <span>Reinforcement Learning</span> <span>PPO</span> <span>Adaptive Control</span>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">
+                    Transitioning the core flight navigation pipeline to utilize Reinforcement Learning. Training the agent to handle complex aerodynamic disturbances and edge-case obstacle avoidance directly from sensory input, hardening the system for unpredictable real-world dynamics prior to physical deployment.
+                </p>
+            </div>
+
+            <div class="sim-item" style="padding: 2rem; display: flex; flex-direction: column;">
+                <h3 style="margin-top: 0;">I: Semantic World Modeling</h3>
+                <div class="tag-group">
+                    <span style="background: #e2e8f0; color: #475569; font-weight: 600;">Future Target</span>
+                    <span>Semantic Segmentation</span> <span>3D Landmarks</span> <span>Spatial Memory</span>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">
+                    Upgrading the environmental representation from pure geometric voxels to semantically aware clusters. The drone will process raw spatial data into known, "textable" 3D landmarks, bridging the gap between physical geometry and cognitive understanding of the environment.
+                </p>
+            </div>
+
+            <div class="sim-item" style="padding: 2rem; display: flex; flex-direction: column;">
+                <h3 style="margin-top: 0;">J: Natural Language HRI & HIL</h3>
+                <div class="tag-group">
+                    <span style="background: #e2e8f0; color: #475569; font-weight: 600;">Future Target</span>
+                    <span>LLM Integration</span> <span>HRI</span> <span>Human-in-the-Loop</span>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">
+                    The final RaaS deployment layer. Developing a Human-Robot Interaction (HRI) interface where operators can issue natural language commands. The system will parse these commands against the semantic world model to autonomously generate and execute complex, situational inspection tasks.
+                </p>
+            </div>
+
+        </section>
+    </main>
+
+    <section class="container" data-aos="fade-up" style="margin-top: 6rem; border-top: 1px solid var(--border); padding-top: 4rem; text-align: center;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Get in touch</h2>
+        <p style="max-width: 700px; margin: 0 auto 2rem auto; color: var(--text-muted);">
+            I believe in collective interest over self-interest. I am open to collaborations in meaningful ventures and new ideas. If you are a young enthusiast, reach out—I am always happy to help share knowledge, resources, or guidance however I can.
+        </p>
+        
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="mailto:addeenmahbub@gmail.com" class="btn-primary">addeenmahbub@gmail.com</a>
+            <a href="https://www.linkedin.com/in/ad-deen-mahbub-2bb6211a0/" target="_blank" class="btn-secondary">LinkedIn</a>
+            <a href="https://github.com/Ad-Deen" target="_blank" class="btn-secondary">GitHub</a>
+        </div>
+        
+        <p style="margin-top: 3rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">
+            Location: Dhaka #1214, Bangladesh | (+880) 1915640384
+        </p>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800, once: true });</script>
+</body>
+</html>
