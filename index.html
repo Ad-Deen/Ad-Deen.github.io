@@ -25,8 +25,8 @@
     <header class="hero">
         <div class="hero-content" data-aos="fade-up">
             <span class="eyebrow">EEE GRADUATE // ROBOTICS RESEARCHER</span>
-            <h1>Bridging Simulation & <span class="blue-text">Real-World Autonomy.</span></h1>
-            <p>Experienced in <strong>Full-Stack Robotics</strong>: From CAD fabrication & PCB design to VSLAM and aspiring to learn Multi-Agent Reinforcement Learning.</p>
+            <h1>Bridging Concept Art to <span class="blue-text">Real-World Deployment.</span></h1>
+            <p>Experienced in <strong>Full-Stack Robotics</strong>: From CAD, printing & PCB design to edge AI deployment like VSLAM and aspiring to learn Multi-Agent Reinforcement Learning.</p>
             <div class="hero-cta">
                 <a href="#projects" class="btn-primary">View Research Projects</a>
                 <a href="mailto:your-email@example.com" class="btn-secondary">Contact</a>
@@ -39,12 +39,19 @@
             
             <div class="bio-text">
                 <h2>Ad-Deen Mahbub</h2>
-                <p class="bio-role">Robotics Researcher & Systems Engineer | EEE Graduate</p>
-                <p class="bio-statement">
-                    I engineer at the intersection of high-level Artificial Intelligence and rigorous hardware acceleration to pioneer the next generation of self-sustaining industrial infrastructure. As a founding researcher within the Synerbotics Research Group, I specialize in vertically integrating multi-domain autonomous systems—bridging physical energy architectures with edge-deployed intelligent navigation frameworks.
-                </p>
-
+                <p class="bio-role">Robotics Systems Architect & Researcher | EEE Graduate</p>
                 
+                <div class="bio-statement" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <p>
+                        I am a full-stack robotics engineer who builds autonomous systems from end to end. I transition conceptual ideas into functional reality: designing in CAD, manufacturing parts, assembling electrical and sensor pipelines, and integrating embedded computing like NVIDIA Jetson. I bridge mechanical hardware with cognitive software stacks, ranging from visual SLAM for spatial awareness to Reinforcement Learning and distributed systems for execution.
+                    </p>
+                    <p>
+                        My core strength is research & relentless execution. I rarely know every technical step when I begin a complex project, but my objective is always clear. I am highly comfortable with ambiguity—I dissect the problem, research whatever is necessary for cognitive clarity, build an hypothetical inference and do experiments, and act decisively on the ones that do work after comparative analysis. Bringing the idea to life is my absolute priority; publications and patents are secondary byproducts of the work.
+                    </p>
+                    <p>
+                        My goals are dictated by two factors: forecasting technological trends so I can build along that trajectory before the industry gets there, and ensuring the work I do has a meaningful, real-world consequence. Once that goal is set, I break it down into achievable milestones & experiments while executing them one by one.
+                    </p>
+                </div>
             </div>
 
             <div class="bio-image-container">
@@ -56,103 +63,53 @@
     </section>
 
     <main id="projects" class="container">
-        <h2 class="section-label">01 // FEATURED_RESEARCH</h2>
+        <h2 class="section-label">01 // CURRENT_FOCUS</h2>
 
         <article class="project-card" data-aos="fade-up">
             <div class="project-info">
                 <span class="project-number">01</span>
-                <h3>Project Bee  (Ongoing)</h3>
-                <p class="tagline">Autonomous UAV for GPS-Denied Navigation</p>
+                <h3>Project Bee <span style="font-size: 0.9rem; font-weight: 400; opacity: 0.7;">(2025 – Present)</span></h3>
+                <p class="tagline">Autonomous UAV for GPS-Denied exploration and surveillance</p>
                 <div class="tag-group">
-                    <span>ESP32-S3</span> <span>Visual SLAM</span> <span>Stereo Vision</span> <span>HIL</span>
+                    <span>PPO</span> <span>Visual SLAM</span> <span>Edge AI Deployment</span> <span>HIL</span> <span>HRI</span> 
                 </div>
                 <p class="description">
-                    Developed an autonomous drone utilizing the <strong>ESP32-S3 CAM Dev module</strong> for offloaded visual SLAM. I optimized PnP algorithms to solve for 4 unknowns by integrating roll and pitch ground truth to drastically reduce drift.
+                    Developing a prototype framework for a generalized <strong>Robotics-as-a-Service (RaaS)</strong> platform. Project Bee is an autonomous UAV engineered for localized charging-station tracking, spatial exploration, and object-centric world-modeling. The system exposes the drone's real-time mental map and automatically extracted landmarks to the operator, enabling intuitive text or voice commands to execute dynamic, situational inspection tasks.
                 </p>
                 <ul class="key-points">
-                    <li>Custom visual-inertial navigation stack for indoor environments.</li>
-                    <li>Offloaded stereo vision processing for real-time obstacle avoidance.</li>
-                    <li>Design and 3D printing of lightweight, vibration-dampened camera mounts.</li>
+                    <li><strong>Autonomous Spatial Exploration:</strong> Complete spatial mapping of unknown indoor environments paired with native, localized return-to-charge mechanics.</li>
+                    <li><strong>Semantic World Modeling:</strong> Real-time translation of physical objects into localized landmarks, populating a 3D map with shared context both the machine and human understand.</li>
+                    <li><strong>Natural Language Control Stack:</strong> Intuitive human-in-the-loop interface translating text or voice prompts (e.g., area inspections, live feed routing) directly into autonomous flight execution via mapped keywords.</li>
                 </ul>
             </div>
+            
             <div class="project-media">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/D3BgCmA8WsY" title="Project Bee Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/D3BgCmA8WsY" title="Project Bee Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                 </div>
                 <div class="repo-links-row">
                     <a href="https://github.com/Ad-Deen/UAV-Project-Bee-Stereo-setup.git" target="_blank" class="btn-repo">🔗 Stereo Setup</a>
                     <a href="https://github.com/Ad-Deen/UAV-Project-Bee-Simulations.git" target="_blank" class="btn-repo">🔗 Simulation</a>
                     <a href="https://github.com/Ad-Deen/UAV-Project-Bee-Custom-Made-Flight-Controller.git" target="_blank" class="btn-repo">🔗 Custom FC</a>
                 </div>
-            </div>
-        </article>
-
-        <article class="project-card reverse" data-aos="fade-up">
-            <div class="project-info">
-                <span class="project-number">02</span>
-                <h3>Project Automama</h3>
-                <p class="tagline">Level-2 Autonomous Ground Vehicle (AGV)</p>
-                <div class="tag-group">
-                    <span>CUDA</span> <span>TensorRT</span> <span>Motion Planning</span> <span>L2 Autonomy</span>
-                </div>
-                <p class="description">
-                    A high-performance autonomous ground platform featuring a robust perception-decision-act pipeline. This project focuses on real-world deployment, utilizing GPU-accelerated pipelines for low-latency environment understanding.
-                </p>
-                <ul class="key-points">
-                    <li><strong>GPU Acceleration:</strong> Implemented real-time road segmentation and occupancy perception using CUDA and TensorRT.</li>
-                    <li><strong>Decision Making:</strong> Integrated real-time motion planning optimized for dynamic, warehouse-style environments.</li>
-                    <li><strong>Hardware Integration:</strong> Fabricated a mechanical chassis with a custom power management stack to support high-draw GPU compute modules.</li>
-                </ul>
-            </div>
-            <div class="project-media">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/n0TXUV4c-2g" title="Automama Final Run" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="repo-links-row">
-                    <a href="https://github.com/Ad-Deen/AGV-Project_Automama-Software_stack.git" target="_blank" class="btn-repo">🔗 Nav Stack</a>
-                    <a href="https://github.com/Ad-Deen/AGV-Project-Automama-Simulation-Stack.git" target="_blank" class="btn-repo">🔗 Simulation</a>
-                    <a href="https://github.com/Ad-Deen/AGV-Project-Automama-Mechanical-Stack.git" target="_blank" class="btn-repo">🔗 Mechanical</a>
-                </div>
-            </div>
-        </article>
-
-        <article class="project-card" data-aos="fade-up">
-            <div class="project-info">
-                <span class="project-number">03</span>
-                <h3>Project ORCA</h3>
-                <p class="tagline">Autonomous Underwater Vehicle (AUV) for Marine Exploration</p>
-                <div class="tag-group">
-                    <span>ROS2</span> <span>Marine Robotics</span> <span>SAUVC 2025</span> <span>Multi-Layer PCB</span>
-                </div>
-                <p class="description">
-                    Served as Project Lead for an autonomous underwater platform that reached the semi-finals of the <strong>Singapore AUV Challenge (SAUVC) 2025</strong>. I oversaw the transition from CAD simulation to real-world pool deployment.
-                </p>
-                <ul class="key-points">
-                    <li><strong>Hardware Integrity:</strong> Designed and fabricated a waterproof pressure hull with signal-isolated multi-layered PCBs for power management.</li>
-                    <li><strong>Underwater Vision:</strong> Developed ROS2-based computer vision nodes for autonomous target detection and navigation in turbid water.</li>
-                    <li><strong>Research Funding:</strong> Secured project grants from the <strong>University Innovation Hub</strong> (World Bank funded) for marine surveillance R&D.</li>
-                </ul>
-            </div>
-            <div class="project-media">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/fHfhACUYOV4" title="Project ORCA AUV" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="repo-links-row">
-                    <a href="https://github.com/Ad-Deen/AUV-project-Electrical-stack.git" target="_blank" class="btn-repo">🔗 Electrical</a>
-                    <a href="https://github.com/Ad-Deen/AUV-project-mechanical_design.git" target="_blank" class="btn-repo">🔗 Mechanical</a>
-                    <a href="https://github.com/Ad-Deen/AUV-project-Simulation-Stack.git" target="_blank" class="btn-repo">🔗 Simulation</a>
+                
+                <div class="details-link-wrapper" style="margin-top: 1rem;">
+                    <a href="bee_detailed.html" class="btn-secondary" style="display: block; text-align: center; width: 100%; padding: 0.75rem; font-family: var(--font-mono); font-size: 0.9rem;">
+                        >> VIEW ARCHITECTURE & MILESTONES
+                    </a>
                 </div>
             </div>
         </article>
     </main>
 
+    <!-- 2. MILITARY & DEFENSE R&D -->
     <section id="defense" class="container" data-aos="fade-up">
         <h2 class="section-label">02 // MILITARY_&_DEFENSE_R&D</h2>
 
         <article class="project-card" data-aos="fade-up">
             <div class="project-info">
-                <span class="project-number">04</span>
-                <h3>Project Raven: Ballistic Target Locator System</h3>
+                <span class="project-number">02</span>
+                <h3>Project Raven: Ballistic Target Locator System <span style="font-size: 0.9rem; font-weight: 400; opacity: 0.7;">(Jan 2026 – Jun 2026)</span></h3>
                 <p class="tagline">Rapid Target Acquisition & Firing Solution UAV</p>
                 <div class="tag-group">
                     <span>Defense R&D</span> <span>Ballistic Solver</span> <span>Target Tracking</span> <span>Full-Stack</span>
@@ -168,18 +125,18 @@
             </div>
             <div class="project-media">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/BMX-DxWpH4c" title="Ballistic Target Locator UAV" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/BMX-DxWpH4c" title="Ballistic Target Locator UAV" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                 </div>
                 <div class="repo-links-row">
-                    <a href="https://github.com/Ad-Deen/ballistic_computer.git" target="_blank" class="btn-repo">🔗 Ballistic Solver Code</a>
+                    <a href="https://github.com/Ad-Deen/ballistic_computer.git" target="_blank" class="btn-repo">🔗 Project Raven Codebase</a>
                 </div>
             </div>
         </article>
 
         <article class="project-card reverse" data-aos="fade-up">
             <div class="project-info">
-                <span class="project-number">05</span>
-                <h3>Project Hawk: Autonomous Pursuit UAV</h3>
+                <span class="project-number">03</span>
+                <h3>Project Hawk: Autonomous Pursuit UAV <span style="font-size: 0.9rem; font-weight: 400; opacity: 0.7;">(Jan 2026 – Jun 2026)</span></h3>
                 <p class="tagline">IBVS-Based Autonomous Search & Track Drone</p>
                 <div class="tag-group">
                     <span>IBVS</span> <span>Computer Vision</span> <span>Autonomous Pursuit</span> <span>UAV</span>
@@ -195,11 +152,75 @@
             </div>
             <div class="project-media">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/32SkwXO1PtA" title="Autonomous Pursuit UAV" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/32SkwXO1PtA" title="Autonomous Pursuit UAV" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                 </div>
                 <div class="repo-links-row">
                     <a href="https://github.com/Ad-Deen/Project-Hawk.git" target="_blank" class="btn-repo">🔗 IBVS Tracer Stack</a>
                     <a href="https://github.com/Ad-Deen/tracer_sim.git" target="_blank" class="btn-repo">🔗 Hawk Simulation</a>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <!-- 3. COMPLETED ACADEMIC RESEARCH -->
+    <section id="completed-research" class="container" data-aos="fade-up">
+        <h2 class="section-label">03 // UNDERGRAD_RESEARCH</h2>
+
+        <article class="project-card" data-aos="fade-up">
+            <div class="project-info">
+                <span class="project-number">04</span>
+                <h3>Project Automama <span style="font-size: 0.9rem; font-weight: 400; opacity: 0.7;">(2023 – 2025)</span></h3>
+                <p class="tagline">Level-2 Autonomous Ground Vehicle (AGV)</p>
+                <div class="tag-group">
+                    <span>ROS2</span> <span>CUDA/TensorRT</span> <span>Jetson Orin Nano</span> <span>L2 Autonomy</span>
+                </div>
+                <p class="description">
+                    An autonomous ground vehicle (AGV) built on a ROS2 architecture, executing perception and control pipelines on edge GPU hardware. The system operates at a sustained full operational cycle of 12.33 FPS in real-time, autonomously managing steering, throttle, and braking based on live environmental data.
+                </p>
+                <ul class="key-points">
+                    <li><strong>Edge Perception:</strong> Executes zero-shot object detection and continuous road segmentation using CUDA, CuPy, VPI and TensorRT without off-board compute deployed on Jetson Orin Nano (8 GB).</li>
+                    <li><strong>Autonomous Navigation:</strong> Real-time path planning and dynamic obstacle avoidance integrated with ESP32-based hardware controllers and sensor integration for syncronized sensor snap cycles.</li>
+                    <li><strong>Hardware Architecture:</strong> Custom-fabricated mechanical chassis equipped with an isolated power management stack to support continuous GPU load.</li>
+                </ul>
+            </div>
+            <div class="project-media">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/n0TXUV4c-2g" title="Automama Final Run" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="repo-links-row">
+                    <a href="https://github.com/Ad-Deen/AGV-Project_Automama-Software_stack.git" target="_blank" class="btn-repo">🔗 Nav Stack</a>
+                    <a href="https://github.com/Ad-Deen/AGV-Project-Automama-Simulation-Stack.git" target="_blank" class="btn-repo">🔗 Simulation</a>
+                    <a href="https://github.com/Ad-Deen/AGV-Project-Automama-Mechanical-Stack.git" target="_blank" class="btn-repo">🔗 Mechanical</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="project-card" data-aos="fade-up">
+            <div class="project-info">
+                <span class="project-number">05</span>
+                <h3>Project ORCA <span style="font-size: 0.9rem; font-weight: 400; opacity: 0.7;">(2023 – 2025)</span></h3>
+                <p class="tagline">Semi-Autonomous Tethered ROV for Marine Exploration</p>
+                <div class="tag-group">
+                    <span>ROS2</span> <span>Jetson Orin</span> <span>Tethered ROV</span> <span>SAUVC 2025</span>
+                </div>
+                <p class="description">
+                    Served as Project Lead for an underwater platform that reached the semi-finals of the <strong>Singapore AUV Challenge (SAUVC) 2025</strong>. Transitioned the design from CAD to a fully functional tethered ROV featuring Ethernet-based control and telemetry feedback, capable of executing semi-autonomous sub-tasks.
+                </p>
+                <ul class="key-points">
+                    <li><strong>Hardware Architecture:</strong> Designed a waterproof pressure hull with signal-isolated, multi-layered PCBs. Integrated a Jetson Orin edge computer with ESP microcontrollers for direct sensor and motor actuation.</li>
+                    <li><strong>Semi-Autonomous Control:</strong> Engineered altitude and position-holding sub-routines utilizing gimbal-axis sonar readings for localized object referencing against hard surfaces.</li>
+                    <li><strong>State Estimation:</strong> Implemented ROS2 nodes for photometric odometry and pose estimation in conditionally constrained underwater environments.</li>
+                    <li><strong>Research Funding:</strong> Secured project grants from the <strong>University Innovation Hub</strong> (World Bank funded) for marine surveillance R&D.</li>
+                </ul>
+            </div>
+            <div class="project-media">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/fHfhACUYOV4" title="Project ORCA AUV" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="repo-links-row">
+                    <a href="https://github.com/Ad-Deen/AUV-project-Electrical-stack.git" target="_blank" class="btn-repo">🔗 Electrical</a>
+                    <a href="https://github.com/Ad-Deen/AUV-project-mechanical_design.git" target="_blank" class="btn-repo">🔗 Mechanical</a>
+                    <a href="https://github.com/Ad-Deen/AUV-project-Simulation-Stack.git" target="_blank" class="btn-repo">🔗 Simulation</a>
                 </div>
             </div>
         </article>
@@ -214,15 +235,15 @@
                 <h3>BOLTU Autonomous Delivery Bot</h3>
                 <p class="tagline">Commercial Last-Mile Delivery Robot</p>
                 <div class="tag-group">
-                    <span>Jetson Xavier</span> <span>Mechanical CAD</span> <span>Digital Twin</span>
+                    <span>Jetson Xavier</span> <span>Mechanical CAD</span> <span>Simulation</span>
                 </div>
                 <p class="description">
                     Developed as part of a commercial product line for <strong>BOLTU Robotics (USA)</strong>. The system utilizes GPS, local map hosting, and walkway detection powered by a Jetson Xavier module to safely navigate pedestrian environments and execute deliveries.
                 </p>
                 <ul class="key-points">
-                    <li><strong>Mechanical Design:</strong> Engineered the 3D CAD models and digital twin for the metal-printed, 4-wheel Ackermann-drive mobile base.</li>
+                    <li><strong>Mechanical Design:</strong> Engineered the 3D CAD models and simulation for the metal-printed, 4-wheel mobile base.</li>
                     <li><strong>Hardware Integration:</strong> Designed the chassis and sensor mounts to safely house the Jetson Xavier compute module and walkway-detection cameras.</li>
-                    <li><strong>Sim-to-Real Validation:</strong> Created the digital twin of the mobile base for kinematic simulation prior to final metal fabrication.</li>
+                    <li><strong>Sim-to-Real Validation:</strong> Created the digital replica of the mobile base for kinematic simulation prior to final manufacturing.</li>
                 </ul>
             </div>
             <div class="project-media">
@@ -244,9 +265,18 @@
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <span class="timeline-date">Post-Graduation – Present (Exp. May 2026)</span>
+                    <span class="timeline-date">July 2026 – Present</span>
+                    <h3>Independent Robotics Researcher</h3>
+                    <p>Focusing exclusively on the development of a generalized Robotics-as-a-Service (RaaS) UAV framework (Project Bee). Architecting semantic world-modeling pipelines and preparing technical findings for peer-reviewed publication. Actively pursuing international engineering roles and global research opportunities to scale these autonomous systems.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">Jan 2026 – June 2026</span>
                     <h3>Lead Research Engineer | Cybernetics Hi-Tech Solutions</h3>
-                    <p>Spearheading the development of a GPS-denied Autonomous Surveillance and Tracking Drone. Managing cross-platform integration for real-time camera streams and gimbal control. A prototype demonstration is scheduled for the Bangladesh Army Artillery Units this May.</p>
+                    <p>Spearheaded the development of a GPS-denied Autonomous Surveillance and Tracking Drone. Managed cross-platform integration for real-time camera streams and gimbal control, successfully delivering a prototype demonstration for the Bangladesh Army Artillery Units.</p>
                 </div>
             </div>
             
