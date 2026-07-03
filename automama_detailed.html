@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project AUTOMAMA | Architecture & Milestones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <span class="brand">AM.<span>ROBOTICS</span></span>
+            <div class="nav-links">
+                <a href="index.html"><< BACK TO MAIN PORTFOLIO</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <span class="eyebrow">AUTONOMOUS GROUND VEHICLE // ARCHITECTURE & MILESTONES</span>
+            <h1>Project <span class="blue-text">AUTOMAMA.</span></h1>
+            <p>Campus TAXI: Book online – Give location – Travel seamlessly – Battery SOC updates from the cloud.</p>
+        </div>
+    </header>
+
+    <section class="container" data-aos="fade-up">
+        <h2 class="section-label">01 // SYSTEM_ARCHITECTURE</h2>
+        
+        <div class="bio-grid">
+            <div class="bio-text">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Hardware & Drive-by-Wire</h3>
+                <p>
+                    Automama is our in-house Autonomous Ground Vehicle (AGV) project, designed to transform a custom-built electric vehicle (EV) into a fully programmable robotic platform. The EV chassis was enhanced with sensor feedback systems for <strong>braking, steering, and acceleration</strong>, enabling complete drive-by-wire control.
+                </p>
+                
+                <h3 style="font-size: 1.5rem; margin-top: 1.5rem; margin-bottom: 1rem;">Perception Pipeline</h3>
+                <p>
+                    We integrated a <strong>stereo vision system</strong> using an IMX219 stereo camera pair. Frames from the left camera are processed through a <strong>YOLOv8n-Segmentation model</strong> to segment roads and obstacles. These segmentation masks guide <strong>stereo depth estimation</strong>, providing precise depth information for drivable areas and obstacles.
+                </p>
+
+                <h3 style="font-size: 1.5rem; margin-top: 1.5rem; margin-bottom: 1rem;">Mapping & Navigation</h3>
+                <p>
+                    Using depth maps, we construct a <strong>2D occupancy grid</strong> of the road. A custom local planner detects and follows the <strong>largest navigable gap</strong> in real time, ensuring safe short-term path planning and allowing Automama to react dynamically to changing environments. Our long-term vision is to map the entire university campus and integrate a global planner with visual odometry.
+                </p>
+            </div>
+
+            <div class="bio-image-container" style="max-width: 500px;">
+                <img src="images/Automama_nav.png" alt="Automama Navigation Flow" class="profile-photo" style="border: 1px solid var(--border); padding: 1rem; background: var(--white);">
+            </div>
+        </div>
+    </section>
+
+    <main class="container" style="margin-top: 6rem;">
+        <h2 class="section-label">02 // DEVELOPMENT_MILESTONES</h2>
+
+        <h3 class="sub-category-label" style="margin-bottom: 2rem; font-family: var(--font-mono); font-size: 1.1rem; opacity: 0.8; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 0.5rem;">
+            >> PHASE 1: HARDWARE & CONTROL STACK
+        </h3>
+
+        <article class="project-card" data-aos="fade-up">
+            <div class="project-info">
+                <span class="project-number">A</span>
+                <h3>Mechanical Stack</h3>
+                <div class="tag-group">
+                    <span>Chassis Fabrication</span> <span>Actuation</span> <span>Drive-by-Wire</span>
+                </div>
+                <p class="description">
+                    Building the electrical control stack on top of a proper mechanical foundation was a major milestone in our initial work. We customized the mechanical linkages and control algorithms to throttle and steer seamlessly.
+                </p>
+            </div>
+            <div class="project-media">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/9tb7mqDrzd0?autoplay=1&mute=1&loop=1&playlist=9tb7mqDrzd0" title="Automama Mechanical Stack" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="repo-links-row">
+                    <a href="https://github.com/Ad-Deen/AGV-Project-Automama-Mechanical-Stack.git" target="_blank" class="btn-repo">🔗 View Mechanical Stack</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="project-card reverse" data-aos="fade-up">
+            <div class="project-info">
+                <span class="project-number">B</span>
+                <h3>Electrical Stack</h3>
+                <div class="tag-group">
+                    <span>Embedded Control</span> <span>Sensor Suite</span> <span>Drive-by-Wire</span>
+                </div>
+                <p class="description">
+                    The electrical stack consists of three main components: the sensor suite, the embedded control system, and the actuation interface. Together, these enable precise drive-by-wire control of the vehicle.
+                </p>
+                <p class="description" style="font-size: 0.9rem; color: var(--text-muted);">
+                    Future plans include integrating a renewable, autonomous charging station system directly into the vehicle's power management loop.
+                </p>
+            </div>
+            <div class="project-media">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/C92Ad9QgoFo" title="Automama Electrical Stack" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="repo-links-row">
+                    <a href="https://github.com/nainaiurk/Automama-EV-Control-Stack.git" target="_blank" class="btn-repo">🔗 View Control Stack</a>
+                </div>
+            </div>
+        </article>
+
+
+        <h3 class="sub-category-label" style="margin-top: 4rem; margin-bottom: 2rem; font-family: var(--font-mono); font-size: 1.1rem; opacity: 0.8; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 0.5rem;">
+            >> PHASE 2: SIMULATION & AUTONOMOUS RACING
+        </h3>
+
+        <article class="project-card" data-aos="fade-up">
+            <div class="project-info">
+                <span class="project-number">C</span>
+                <h3>Digital Twin Campus in Gazebo</h3>
+                <div class="tag-group">
+                    <span>Gazebo</span> <span>Digital Twin</span> <span>Validation</span>
+                </div>
+                <p class="description">
+                    To enable safe, repeatable, and low-cost testing of the autonomous system, we developed a custom Gazebo simulation environment that precisely replicates our university campus.
+                </p>
+                <p class="description" style="font-size: 0.9rem; color: var(--text-muted);">
+                    This simulated world is heavily utilized to test and validate Automama’s full autonomous stack, including point-to-point navigation, control, and perception modules prior to real-world execution.
+                </p>
+            </div>
+            <div class="project-media">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/x3cxDq0ebT0?autoplay=1&mute=1&loop=1&playlist=x3cxDq0ebT0" title="Automama Digital Twin" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="repo-links-row">
+                    <a href="https://github.com/Ad-Deen/AGV-Project-Automama-Simulation-Stack.git" target="_blank" class="btn-repo">🔗 View Sim Stack</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="project-card reverse" data-aos="fade-up">
+            <div class="project-info">
+                <span class="project-number">D</span>
+                <h3>RL_Race: Custom PPO Training Architecture</h3>
+                <div class="tag-group">
+                    <span>PPO</span> <span>ROS 2</span> <span>Ignition Gazebo</span> <span>End-to-End RL</span>
+                </div>
+                <p class="description">
+                    Implemented a fully custom Proximal Policy Optimization (PPO) training pipeline for autonomous racing. The system uses end-to-end neural networks for actor/critic models without relying on pre-built libraries like Stable Baselines.
+                </p>
+                <p class="description" style="font-size: 0.9rem; color: var(--text-muted);">
+                    Continuous visual and LIDAR-based state representations allow the agent to learn optimal strategies, while integrated SLAM enables automatic track mapping.
+                </p>
+            </div>
+            <div class="project-media">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/OespvNXDCgc?autoplay=1&mute=1&loop=1&playlist=OespvNXDCgc" title="Custom PPO Training Architecture" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="repo-links-row">
+                    <a href="https://github.com/Ad-Deen/AGV-Project-Autonomous-Racing-F1-10th-AutoDrive-Simulator.git" target="_blank" class="btn-repo">🔗 View PPO Architecture</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="project-card" data-aos="fade-up">
+            <div class="project-info">
+                <span class="project-number">E</span>
+                <h3>AutoDrive DevKit: 2D SLAM & Path Planning</h3>
+                <div class="tag-group">
+                    <span>2D SLAM</span> <span>A* Planning</span> <span>Trajectory Optimization</span>
+                </div>
+                <p class="description">
+                    A complete framework for autonomous racing featuring 2D SLAM for mapping race tracks into occupancy grids, advanced path planning with A* and smoothing, and high-speed trajectory optimization.
+                </p>
+                <p class="description" style="font-size: 0.9rem; color: var(--text-muted);">
+                    The modular ROS 2 and Python-based system allows seamless integration with the AutoDrive Simulator to guarantee repeatable testing of high-speed maneuvers.
+                </p>
+            </div>
+            <div class="project-media">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/VIc3xsUTV_A?autoplay=1&mute=1&loop=1&playlist=VIc3xsUTV_A" title="AutoDrive DevKit SLAM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="repo-links-row">
+                    <a href="https://github.com/Ad-Deen/AGV-Custom-PPO-Training-Architecture-ROS2-Ign-Gazebo-Fortress.git" target="_blank" class="btn-repo">🔗 View DevKit</a>
+                </div>
+            </div>
+        </article>
+
+
+        <h3 class="sub-category-label" style="margin-top: 4rem; margin-bottom: 2rem; font-family: var(--font-mono); font-size: 1.1rem; opacity: 0.8; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 0.5rem;">
+            >> PHASE 3: PERCEPTION & REAL-WORLD DEPLOYMENT
+        </h3>
+
+        <article class="project-card reverse" data-aos="fade-up">
+            <div class="project-info">
+                <span class="project-number">F</span>
+                <h3>Perception Stack</h3>
+                <div class="tag-group">
+                    <span>YOLOv8n-Seg</span> <span>Stereo Depth</span> <span>IMX219</span> <span>Occupancy Grid</span>
+                </div>
+                <p class="description">
+                    The perception stack combines stereo vision and deep learning. A YOLOv8n-Seg model processes the left feed to identify road regions, while stereo depth estimation generates distance matrices for these segmented areas.
+                </p>
+                <p class="description" style="font-size: 0.9rem; color: var(--text-muted);">
+                    Data is projected into a 2D occupancy grid, enabling the vehicle to detect free space and plan paths by following the largest gap. This seamlessly integrates with visual odometry for global mapping.
+                </p>
+            </div>
+            <div class="project-media">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/7dIjorgoJgw?autoplay=1&mute=1&loop=1&playlist=7dIjorgoJgw" title="Automama Perception Stack" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="repo-links-row">
+                    <a href="https://github.com/Ad-Deen/AGV-Project_Automama-Software_stack/tree/main/automama/automama/perception" target="_blank" class="btn-repo">🔗 View Perception Stack</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="project-card" data-aos="fade-up">
+            <div class="project-info">
+                <span class="project-number">G</span>
+                <h3>Navigation Stack Real World Deployment</h3>
+                <div class="tag-group">
+                    <span>Zero-Copy Memory</span> <span>Potential Fields</span> <span>GPU Accel</span>
+                </div>
+                <p class="description">
+                    Engineered for real-time decision-making with GPU-accelerated processing. Using DMA and zero-copy memory, sensor data streams efficiently to the GPU for parallel computation.
+                </p>
+                <p class="description" style="font-size: 0.9rem; color: var(--text-muted);">
+                    A potential fields method guides trajectory generation (attraction to goal, repulsion from obstacles). Hard vehicle kinematic and dynamic constraints are applied so the planned trajectory remains physically feasible.
+                </p>
+            </div>
+            <div class="project-media">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/xG8Kb4ehBB4?autoplay=1&mute=1&loop=1&playlist=xG8Kb4ehBB4" title="Automama Navigation Deployment" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="repo-links-row">
+                    <a href="https://github.com/Ad-Deen/AGV-Project_Automama-Software_stack.git" target="_blank" class="btn-repo">🔗 View Navigation Stack</a>
+                </div>
+            </div>
+        </article>
+
+
+        <h3 class="sub-category-label" style="margin-top: 4rem; font-family: var(--font-mono); font-size: 1.1rem; opacity: 0.8; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 0.5rem;">
+            >> PHASE 4: FUTURE TARGETS
+        </h3>
+
+        <section class="sim-grid" style="margin-top: 2rem; margin-bottom: 6rem;">
+            <div class="sim-item" style="padding: 2rem; display: flex; flex-direction: column;">
+                <h3 style="margin-top: 0;">H: Visual Odometry</h3>
+                <div class="tag-group">
+                    <span style="background: #fef08a; color: #854d0e; font-weight: 600;">Work in Progress</span>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">
+                    Developing robust visual odometry pipelines tailored for the IMX219 stereo setup to guarantee high-frequency pose estimation in diverse outdoor lighting conditions.
+                </p>
+            </div>
+            
+            <div class="sim-item" style="padding: 2rem; display: flex; flex-direction: column;">
+                <h3 style="margin-top: 0;">I: Global Mapping & Localization</h3>
+                <div class="tag-group">
+                    <span style="background: #fef08a; color: #854d0e; font-weight: 600;">Work in Progress</span>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">
+                    Integrating the visual odometry into a campus-wide global planner, allowing Automama to localize accurately within a pre-computed map for completely autonomous A-to-B routing.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <section class="container" data-aos="fade-up" style="margin-top: 6rem; border-top: 1px solid var(--border); padding-top: 4rem; text-align: center;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Get in touch</h2>
+        <p style="max-width: 700px; margin: 0 auto 2rem auto; color: var(--text-muted);">
+            I believe in collective interest over self-interest. I am open to collaborations in meaningful ventures and new ideas. If you are a young enthusiast, reach out—I am always happy to help share knowledge, resources, or guidance however I can.
+        </p>
+        
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="mailto:addeenmahbub@gmail.com" class="btn-primary">addeenmahbub@gmail.com</a>
+            <a href="https://www.linkedin.com/in/ad-deen-mahbub-2bb6211a0/" target="_blank" class="btn-secondary">LinkedIn</a>
+            <a href="https://github.com/Ad-Deen" target="_blank" class="btn-secondary">GitHub</a>
+        </div>
+        
+        <p style="margin-top: 3rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">
+            Location: Sylhet #3110, Bangladesh | (+880) 1915640384
+        </p>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800, once: true });</script>
+</body>
+</html>
