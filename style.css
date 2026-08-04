@@ -521,10 +521,9 @@ h1 {
    ========================================= */
 .bio-grid {
     display: grid;
-    /* This splits the row: Text gets more space (1.5fr), Image gets less (1fr) */
     grid-template-columns: 1.5fr 1fr; 
-    gap: 4rem; /* Adds nice breathing room between text and image */
-    align-items: center; /* Vertically centers the image with the text */
+    gap: 4rem; 
+    align-items: flex-start; /* <--- Keeps image at the top */
 }
 
 .bio-image-container {
@@ -635,4 +634,397 @@ h1 {
 
 .sim-item .tag-group span {
     margin-top: 0.5rem;
+}
+
+/* =========================================
+   VERTICAL INFOGRAPHIC FLOWCHART (BOTTOM TO TOP)
+   ========================================= */
+
+.flow-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    position: relative;
+}
+
+/* Domain Grouping Container (Dotted Box) */
+.domain-group {
+    width: 100%;
+    max-width: 1100px;
+    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+    border-radius: 16px;
+    border: 2px dashed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    margin: 0.5rem 0;
+}
+
+.domain-group .group-label {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: var(--bg-light);
+    padding: 0.4rem 1.2rem;
+    border-radius: 4px;
+    border: 1px solid currentColor;
+    position: absolute;
+    top: -0.7rem;
+    left: 2rem;
+}
+
+/* Foundation Group Theme */
+.domain-group.foundation-group {
+    border-color: #2563eb;
+    background: #f8faff;
+}
+.domain-group.foundation-group .group-label {
+    color: #2563eb;
+    border-color: #2563eb;
+}
+
+/* Research Group Theme */
+.domain-group.research-group {
+    border-color: #8b5cf6;
+    background: #faf5ff;
+}
+.domain-group.research-group .group-label {
+    color: #8b5cf6;
+    border-color: #8b5cf6;
+}
+
+/* Horizontal Rows for Cards */
+.flow-row {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.flow-col-center {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Node Cards */
+.flow-node {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    cursor: default;
+}
+
+.flow-node:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    border-color: var(--primary-blue);
+}
+
+.flow-node .node-icon { font-size: 2.5rem; display: block; margin-bottom: 0.5rem; }
+.flow-node .node-title { font-weight: 700; font-size: 1rem; color: var(--text-main); margin-bottom: 0.3rem; }
+.flow-node .node-subtitle { font-size: 0.85rem; color: var(--text-muted); }
+
+/* Expandable Details */
+.flow-node .node-details {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease 0.1s;
+    border-top: 1px solid transparent;
+    padding-top: 0;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: left;
+}
+.flow-node:hover .node-details {
+    max-height: 300px;
+    opacity: 1;
+    border-top: 1px solid var(--border);
+    padding-top: 0.8rem;
+}
+
+/* --- STAGE SPECIFIC STYLES --- */
+
+/* Layer 1: Foundation (Bottom) */
+.flow-node.foundation-hw { border-left: 4px solid #2563eb; }
+.flow-node.foundation-sw { border-left: 4px solid #7c3aed; }
+.flow-node.foundation-sim { border-left: 4px solid #0ea5e9; }
+
+/* Layer 2: Bridge (Wide Rectangle Layout) */
+.flow-node.bridge-node {
+    border: 2px solid #2563eb;
+    background: #f8faff;
+    width: 100%;
+    max-width: 1100px; /* Spans almost the entire container width */
+    padding: 2rem 2.5rem; /* Generous horizontal spacing */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2.5rem;
+    text-align: left;
+    flex-wrap: nowrap;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+}
+
+/* Override the expansion mechanics for this specific node (always visible) */
+.flow-node.bridge-node .node-details {
+    max-height: none !important;
+    opacity: 1 !important;
+    border-top: none !important;
+    padding-top: 0 !important;
+    margin-top: 0.5rem;
+    overflow: visible !important;
+}
+
+/* Left side: Text container */
+.bridge-text {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Right side: Video container */
+.bridge-video-wrapper {
+    flex: 2; 
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background: #000;
+    min-width: 320px;
+}
+
+/* Layer 3: The Open Gap (Question Mark) */
+.flow-node.gap-node {
+    background: #fffbeb;
+    border: 2px dashed #ffab40;
+    box-shadow: 0 0 30px rgba(255, 171, 64, 0.2);
+    text-align: center;
+    max-width: 350px;
+    padding: 2rem 1rem;
+}
+.flow-node.gap-node .gap-icon {
+    font-size: 4rem;
+    color: #ffab40;
+    display: block;
+    animation: pulse-glow 2s infinite;
+}
+.flow-node.gap-node .gap-text {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: #d97706;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+@keyframes pulse-glow {
+    0% { text-shadow: 0 0 0 rgba(255,171,64,0); }
+    50% { text-shadow: 0 0 25px rgba(255,171,64,0.6); }
+    100% { text-shadow: 0 0 0 rgba(255,171,64,0); }
+}
+
+/* Layer 4: Branches (Top) */
+.flow-node.branch-scene { border-left: 4px solid #06b6d4; }
+.flow-node.branch-rl { border-left: 4px solid #8b5cf6; }
+.flow-node.branch-multi { border-left: 4px solid #f97316; }
+
+/* --- VERTICAL ARROWS & LABELS --- */
+.arrow-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    width: 100%;
+    max-width: 200px;
+}
+
+.arrow-svg-up {
+    width: 60px;
+    height: 40px;
+}
+.arrow-svg-up path { fill: none; stroke-width: 3; }
+.arrow-svg-up polygon { fill: inherit; }
+
+.arrow-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-align: center;
+    padding: 0.2rem 0.8rem;
+    border-radius: 4px;
+}
+
+/* Arrow 1: Foundation -> Bridge */
+.arrow-1 path, .arrow-1 polygon { stroke: #2563eb; fill: #2563eb; }
+.arrow-label-1 { background: #eff6ff; color: #2563eb; border: 1px solid #2563eb; }
+
+/* Arrow 2: Bridge -> Gap */
+.arrow-2 path, .arrow-2 polygon { stroke: #ffab40; fill: #ffab40; }
+.arrow-label-2 { background: #fffbeb; color: #d97706; border: 1px solid #ffab40; }
+
+/* Arrow 3: Gap -> Branches */
+.arrow-3 path { stroke: #8b5cf6; stroke-dasharray: 6,4; }
+.arrow-3 polygon { fill: #8b5cf6; }
+.arrow-label-3 { background: #f3e8ff; color: #7c3aed; border: 1px solid #8b5cf6; }
+
+/* Responsive Mobile Layout */
+@media (max-width: 900px) {
+    .flow-node.bridge-node {
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 1.5rem;
+        text-align: center;
+    }
+    .bridge-video-wrapper {
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+@media (max-width: 768px) {
+    .flow-row { flex-direction: column; align-items: center; }
+    .flow-node { max-width: 100%; }
+    .arrow-svg-up { width: 40px; height: 30px; }
+    .domain-group { padding: 1.5rem 0.5rem; }
+    .domain-group .group-label { left: 1rem; font-size: 0.7rem; }
+}
+
+
+/* =========================================
+   FOUNDATION LAYOUT (VIDEO & CARDS SIDE-BY-SIDE)
+   ========================================= */
+.foundation-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    width: 100%;
+    align-items: stretch;
+}
+
+.foundation-video-wrapper {
+    flex: 1.2; /* Video takes up 1.2 parts of the width */
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background: #000;
+    min-width: 300px; /* Ensures it doesn't get too squished */
+}
+
+.foundation-cards-wrapper {
+    flex: 1.5; /* Cards take up 1.5 parts of the width */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+/* Allow the 3 cards to fit nicely in the wrapper */
+.foundation-cards-wrapper .flow-node {
+    flex: 1 1 180px; /* Flex-grow, flex-shrink, flex-basis */
+    max-width: 100%;
+}
+
+/* Mobile responsiveness for the foundation layout */
+@media (max-width: 900px) {
+    .foundation-layout {
+        flex-direction: column;
+    }
+    .foundation-video-wrapper {
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+
+/* =========================================
+   COLLAPSIBLE BIO SECTION
+   ========================================= */
+.bio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* The Toggle Button */
+.bio-toggle {
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--primary-blue);
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--primary-blue);
+    border-radius: 6px;
+    background: var(--bg-light);
+    transition: all 0.3s ease;
+    user-select: none;
+    list-style: none; /* Hides default triangle */
+    display: inline-block;
+}
+
+.bio-toggle:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+/* Rotating Icon */
+.bio-toggle-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    margin-right: 0.3rem;
+}
+
+/* When details is open, rotate the arrow */
+details[open] .bio-toggle-icon {
+    transform: rotate(90deg);
+}
+
+/* Ensure the content spacing is smooth */
+details.bio-details {
+    width: 100%;
+}
+details.bio-details .bio-grid {
+    margin-top: 1.5rem;
+}
+
+
+/* Force Research Aspirations cards into a single row */
+.domain-group.research-group .flow-row {
+    flex-wrap: nowrap; /* Prevents the 3rd card from dropping to the next row */
+}
+
+/* Let the cards evenly distribute the available horizontal space */
+.domain-group.research-group .flow-node {
+    flex: 1; /* Each card will grow to fill the width equally */
+    min-width: 0; /* Prevents overflow issues inside flex containers */
+    max-width: 100%; /* Overrides the hard 320px limit so they can stretch */
+}
+
+/* Keep them flexible on smaller screens (Tablet/Mobile) */
+@media (max-width: 768px) {
+    .domain-group.research-group .flow-row {
+        flex-wrap: wrap; /* Let them stack again on small screens */
+    }
+    .domain-group.research-group .flow-node {
+        max-width: 320px; /* Restore the original width limit on mobile */
+        flex: none; /* Stop them from stretching */
+    }
 }
