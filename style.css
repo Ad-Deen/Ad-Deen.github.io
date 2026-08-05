@@ -904,7 +904,6 @@ h1 {
     .domain-group .group-label { left: 1rem; font-size: 0.7rem; }
 }
 
-
 /* =========================================
    FOUNDATION LAYOUT (VIDEO & CARDS SIDE-BY-SIDE)
    ========================================= */
@@ -934,10 +933,11 @@ h1 {
     align-items: stretch;
 }
 
-/* Allow the 3 cards to fit nicely in the wrapper */
+/* UPDATED: Prevent cards from getting too skinny */
 .foundation-cards-wrapper .flow-node {
-    flex: 1 1 180px; /* Flex-grow, flex-shrink, flex-basis */
+    flex: 1 1 220px; /* Increased from 180px */
     max-width: 100%;
+    min-width: 200px; /* Prevents them from collapsing into tiny vertical strips */
 }
 
 /* Mobile responsiveness for the foundation layout */
@@ -950,7 +950,6 @@ h1 {
         min-width: unset;
     }
 }
-
 
 /* =========================================
    COLLAPSIBLE BIO SECTION
@@ -1005,26 +1004,318 @@ details.bio-details .bio-grid {
     margin-top: 1.5rem;
 }
 
-
-/* Force Research Aspirations cards into a single row */
+/* =========================================
+   FIX FOR RESEARCH ASPIRATIONS (3-COLUMN GRID)
+   ========================================= */
 .domain-group.research-group .flow-row {
-    flex-wrap: nowrap; /* Prevents the 3rd card from dropping to the next row */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Forces perfectly equal 3 columns */
+    gap: 1.5rem;
+    width: 100%;
 }
 
-/* Let the cards evenly distribute the available horizontal space */
 .domain-group.research-group .flow-node {
-    flex: 1; /* Each card will grow to fill the width equally */
-    min-width: 0; /* Prevents overflow issues inside flex containers */
-    max-width: 100%; /* Overrides the hard 320px limit so they can stretch */
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
 }
 
-/* Keep them flexible on smaller screens (Tablet/Mobile) */
+/* Keep them stacked vertically on tablets/phones */
 @media (max-width: 768px) {
     .domain-group.research-group .flow-row {
-        flex-wrap: wrap; /* Let them stack again on small screens */
+        grid-template-columns: 1fr; /* Stacks to 1 column */
     }
     .domain-group.research-group .flow-node {
-        max-width: 320px; /* Restore the original width limit on mobile */
-        flex: none; /* Stop them from stretching */
+        max-width: 450px; /* Restores width limit */
     }
+}
+
+/* =========================================
+   WIKIPEDIA-STYLE HOVERCARD FOR SCENE UNDERSTANDING
+   ========================================= */
+
+/* Turn the Scene Understanding card into a positioning anchor */
+.flow-node.branch-scene {
+    position: relative; 
+}
+
+/* The Floating Popup Box */
+.scene-popup {
+    position: absolute;
+    bottom: 100%; /* FIXED: Removed the 20px gap. Touches the card directly on desktop! */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 420px; 
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem 1.8rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    z-index: 9999;
+    text-align: left;
+    font-size: 0.85rem;
+    color: var(--text-main);
+    display: none; /* Hidden by default */
+    max-height: 420px;
+    overflow-y: auto; /* Scrolls if the text is too long */
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    
+    /* FIX #1: Allow scroll interactions ONLY when visible (We override this in hover) */
+    pointer-events: none; 
+}
+
+/* The triangle arrow pointing DOWN to the card */
+.scene-popup::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; 
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: var(--white) transparent transparent transparent;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.05));
+}
+
+/* FIX #2: Show popup when hovering the card OR the popup itself */
+.flow-node.branch-scene:hover .scene-popup,
+.scene-popup:hover {
+    display: block;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0px);
+    pointer-events: auto; /* Allows the scrollbar and text to be clicked */
+}
+
+/* Popup Typography */
+.scene-popup h4 {
+    font-family: var(--font-mono);
+    color: var(--primary-blue);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.scene-popup p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
+.scene-popup p:last-child {
+    margin-bottom: 0;
+}
+
+.scene-popup strong {
+    color: var(--text-main);
+    font-weight: 600;
+    display: block; /* Puts the bold question on its own line */
+    margin-bottom: 0.25rem;
+}
+
+/* Mobile Responsiveness: Float BELOW the card on smaller screens */
+@media (max-width: 900px) {
+    /* The Floating Popup Box */
+    .scene-popup {
+        position: absolute;
+        bottom: auto; /* Resets bottom */
+        top: 100%; /* Floats BELOW the card on mobile */
+        left: 50%;
+        transform: translateX(-50%) translateY(-10px);
+        width: 320px; /* Slightly narrower on mobile */
+        padding: 1rem;
+        max-height: 300px;
+    }
+
+    /* The triangle arrow pointing UP to the card on mobile */
+    .scene-popup::after {
+        top: -10px;
+        bottom: auto;
+        border-width: 0 10px 10px;
+        border-color: transparent transparent var(--white) transparent;
+    }
+
+    /* Keep both the card and the popup itself open on hover */
+    .flow-node.branch-scene:hover .scene-popup,
+    .scene-popup:hover {
+        transform: translateX(-50%) translateY(0px);
+        pointer-events: auto; /* Allows scrolling */
+    }
+}
+
+/* Extend Hovercard Logic to Recursive Action Learning */
+.flow-node.branch-rl {
+    position: relative;
+}
+.flow-node.branch-rl:hover .rl-popup,
+.rl-popup:hover {
+    display: block;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0px);
+    pointer-events: auto;
+}
+
+/* (Optional) Styling for the RL Popup - inherits everything from .scene-popup */
+.rl-popup {
+    /* Reuse the exact same dimensions and styling as scene-popup */
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 420px; 
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem 1.8rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    z-index: 9999;
+    text-align: left;
+    font-size: 0.85rem;
+    color: var(--text-main);
+    display: none; 
+    max-height: 420px;
+    overflow-y: auto; 
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none; 
+}
+
+/* The triangle arrow pointing DOWN to the card */
+.rl-popup::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; 
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: var(--white) transparent transparent transparent;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.05));
+}
+
+/* Mobile Responsiveness for RL Popup */
+@media (max-width: 900px) {
+    .rl-popup {
+        bottom: auto;
+        top: 100%;
+        width: 320px;
+        padding: 1rem;
+        max-height: 300px;
+    }
+    .rl-popup::after {
+        top: -10px;
+        bottom: auto;
+        border-width: 0 10px 10px;
+        border-color: transparent transparent var(--white) transparent;
+    }
+}
+
+/* =========================================
+   HOVERCARD LOGIC FOR MULTI-AGENT COLLABORATION
+   ========================================= */
+
+.flow-node.branch-multi {
+    position: relative;
+}
+
+/* Show popup when hovering the card OR the popup itself */
+.flow-node.branch-multi:hover .multi-popup,
+.multi-popup:hover {
+    display: block;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0px);
+    pointer-events: auto;
+}
+
+/* Multi-Agent Popup Styling - Matches Scene and RL popups */
+.multi-popup {
+    position: absolute;
+    bottom: 100%; /* Touches the card directly - zero dead zone */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 420px; 
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem 1.8rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    z-index: 9999;
+    text-align: left;
+    font-size: 0.85rem;
+    color: var(--text-main);
+    display: none; 
+    max-height: 420px;
+    overflow-y: auto; 
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none; 
+}
+
+/* The triangle arrow pointing DOWN to the card */
+.multi-popup::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; 
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: var(--white) transparent transparent transparent;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.05));
+}
+
+/* Mobile Responsiveness for Multi-Agent Popup */
+@media (max-width: 900px) {
+    .multi-popup {
+        bottom: auto;
+        top: 100%;
+        width: 320px;
+        padding: 1rem;
+        max-height: 300px;
+    }
+    .multi-popup::after {
+        top: -10px;
+        bottom: auto;
+        border-width: 0 10px 10px;
+        border-color: transparent transparent var(--white) transparent;
+    }
+}
+
+/* Popup Typography (Matches Scene/RL) */
+.multi-popup h4 {
+    font-family: var(--font-mono);
+    color: var(--primary-blue);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.multi-popup p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
+.multi-popup p:last-child {
+    margin-bottom: 0;
+}
+
+.multi-popup strong {
+    color: var(--text-main);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.25rem;
 }
