@@ -63,26 +63,78 @@
             <!-- LAYER 4: RESEARCH BRANCHES (TOP) -->
             <!-- ================================ -->
             <div class="domain-group research-group">
-                <span class="group-label">My Research Aspirations</span>
+                <span class="group-label">My Research Focus</span>
                 <div class="flow-row">
-                    <div class="flow-node branch-scene">
+                                        <div class="flow-node branch-scene">
                         <span class="node-icon">🧠</span>
                         <div class="node-title">Scene Understanding</div>
                         <div class="node-subtitle">Semantic mapping from raw data</div>
                         <div class="node-details">
                             <strong>My Vision:</strong><br>
-                            Use DINOv2 and Grounding DINO to turn point clouds into <em>queryable</em> semantic maps. The robot will understand "pathway", "obstacle", "landing zone" purely from vision.
+                            Understanding scenes like we humans do—that is the ultimate goal. By leveraging <strong>DINOv2</strong> and <strong>Grounding DINO</strong>, I aim to transform raw point clouds into <em>queryable</em> semantic maps. The robot will identify "pathway", "obstacle", and "landing zone" purely from vision, bridging raw geometry into human-like spatial comprehension.
+                        </div>
+
+                        <!-- NEW: Floating Wikipedia-Style Popup -->
+                        <div class="scene-popup">
+                            <h4>🔍 Open Research Questions</h4>
+                            
+                            <p>
+                                <strong>1) How can a robot build semantic maps that are both real-time and long-term stable?</strong>
+                                Current semantic mapping still struggles with the trade-off between semantic richness, latency, memory, and lifelong consistency. A good PhD question is how to update maps continuously in dynamic environments without blowing up compute or losing semantic accuracy over time.
+                            </p>
+
+                            <p>
+                                <strong>2) How can 2D and 3D cues be fused without losing geometry or semantics?</strong>
+                                Hybrid systems still have unresolved issues in view consistency, occlusion handling, projection noise, and sensor misalignment. The open research question is how to fuse 2D foundation-model semantics with 3D geometry in a way that is robust, uncertainty-aware, and not just a heuristic projection pipeline.
+                            </p>
+
+                            <p>
+                                <strong>3) How can robots understand open-world scenes with novel objects and weak labels?</strong>
+                                Most current systems still depend on closed-set categories and expensive annotations. A strong research question is how to do open-vocabulary, queryable scene understanding so a robot can recognize new objects, learn from sparse supervision, and still produce reliable 3D semantics.
+                            </p>
+
+                            <p>
+                                <strong>4) How can scene understanding become task-aware instead of only label-aware?</strong>
+                                This is about moving from “what is in the scene?” to “what does the robot need to know for action?” The open problem is how to build representations that support planning, manipulation, navigation, and interaction, such as object-centric maps or scene graphs with affordances and relations.
+                            </p>
                         </div>
                     </div>
+
                     <div class="flow-node branch-rl">
                         <span class="node-icon">🤖</span>
                         <div class="node-title">Recursive Action Learning</div>
-                        <div class="node-subtitle">Continuous RL (PPO) based on scene</div>
+                        <div class="node-subtitle">Continuous RL agents based on context</div>
                         <div class="node-details">
                             <strong>My Vision:</strong><br>
-                            End-to-end PPO agent consuming the semantic map and outputting continuous control (throttle, yaw, pitch). Learning to act via thousands of digital twin trials before physical deployment.
+                            Acting like humans based on context and reasoning—that is the core vision for my RL research. By deploying an <strong>End-to-end PPO agent</strong> that consumes the semantic map and outputs continuous control (throttle, yaw, pitch), I enable the robot to reason about its environment before acting. The policy is refined through thousands of rigorous <strong>digital twin trials</strong> in simulation before it ever touches physical hardware.
+                        </div>
+
+                        <!-- NEW: Condensed RL Research Popup -->
+                        <div class="rl-popup">
+                            <h4>🔄 Open RL Research Questions</h4>
+                            
+                            <p>
+                                <strong>1) Persistent Contextual Memory fused with VISLAM:</strong> 
+                                How can an external episodic memory be dynamically updated to encode spatial-semantic history, allowing an RL agent to maintain long-term situational awareness in evolving environments <em>without</em> retraining the policy?
+                            </p>
+
+                            <p>
+                                <strong>2) In-Context RL (ICRL) for Online Adaptation:</strong> 
+                                Can we utilize a Transformer-based ICRL agent to adapt navigation behavior based on a window of past rewards (trial-and-error) without updating network weights, mimicking human "on-the-fly" learning?
+                            </p>
+
+                            <p>
+                                <strong>3) Hierarchical RL with Plan-Based Reward Shaping:</strong> 
+                                How can a global VISLAM planner shape the reward signal for a local RL policy, enabling opportunistic, human-like deviations from the path while still progressing towards the global goal?
+                            </p>
+
+                            <p>
+                                <strong>4) Unified Architecture for Zero-Shot Generalization:</strong> 
+                                How can VISLAM, contextual memory, and ICRL be architecturally fused into a single system that demonstrates robust navigation in entirely unseen environments without any fine-tuning?
+                            </p>
                         </div>
                     </div>
+
                     <div class="flow-node branch-multi">
                         <span class="node-icon">🐝</span>
                         <div class="node-title">Multi-Agent Collaboration</div>
@@ -91,7 +143,33 @@
                             <strong>My Vision:</strong><br>
                             Extending to 10+ agents using MAPPO and consensus algorithms. Exploring how decentralized swarms self-organize for complex tasks like search-and-rescue or surveillance without a central brain.
                         </div>
+
+                        <!-- NEW: Condensed Multi-Agent Research Popup -->
+                        <div class="multi-popup">
+                            <h4>🐝 Open Multi-Agent Research Questions</h4>
+                            
+                            <p>
+                                <strong>1) Decentralized DTDE Collaborative Mapping:</strong>
+                                How can a fully decentralized multi-agent RL framework fuse local VISLAM data into a unified metric-semantic map under severe communication constraints? Focus: sparse graph embeddings, conflict resolution without a central arbiter.
+                            </p>
+
+                            <p>
+                                <strong>2) Hierarchical Role Allocation & Human-like Play:</strong>
+                                How can context-aware hierarchical RL enable real-time role shifts and strategic coordination in adversarial environments (e.g., robotic football), mimicking dynamic human team play? Focus: encoding game context into sub-goals; shaping rewards for team altruism.
+                            </p>
+
+                            <p>
+                                <strong>3) Multi-Agent In-Context RL (ICRL) for Zero-Shot Adaptation:</strong>
+                                How can a decentralized swarm use ICRL to adapt to entirely new environments and team compositions at test time without updating any policy weights? Focus: global planner reward encoding into context history; aligning independent agent actions to avoid chaos.
+                            </p>
+
+                            <p>
+                                <strong>4) Unified Swarm Architecture & Emergent Intelligence:</strong>
+                                Can we integrate decentralized VISLAM, distributed memory, and MA-ICRL into a single architecture where the swarm's collective intelligence surpasses the sum of its parts? Focus: resolving global mission vs. local safety conflicts; inducing predictive collision avoidance.
+                            </p>
+                        </div>
                     </div>
+
                 </div>
             </div>
 
@@ -144,7 +222,7 @@
                         <div class="node-subtitle" style="margin-bottom: 0.5rem;">The "Trunk" of my current work</div>
                         <div class="node-details">
                             <strong>Current State:</strong><br>
-                            I have mastered the spatial reconstruction and simulation pipeline. The next phase is injecting semantic intelligence <strong>on top</strong> of this layer.
+                            I have experience in the spatial reconstruction and simulation pipeline. The next phase is injecting semantic intelligence <strong>on top</strong> of this layer.
                         </div>
                     </div>
 
@@ -192,16 +270,16 @@
                         <div class="flow-node foundation-hw">
                             <span class="node-icon">⚙️</span>
                             <div class="node-title">Hardware & Electrical</div>
-                            <div class="node-subtitle">CAD, PCB, Sensors, Power</div>
+                            <div class="node-subtitle">CAD, PCB, Sensors, Power, Communication Protocols</div>
                             <div class="node-details">
                                 <strong>Proven Stack:</strong><br>
-                                Fusion360, EasyEDA, LiDAR, Stereo Cameras, Jetson Orin Nano. Built AGVs and ROVs that survived real-world thermal/mechanical stress.
+                                Fusion360, EasyEDA, LiDAR, Stereo Cameras, Jetson Orin Nano. Built AGVs and ROVs from mechanical design, electrical assembly, sensor integration, power management & communication interfaces.
                             </div>
                         </div>
                         <div class="flow-node foundation-sw">
                             <span class="node-icon">💻</span>
                             <div class="node-title">Software & Edge AI</div>
-                            <div class="node-subtitle">ROS2, CUDA, TensorRT, VSLAM</div>
+                            <div class="node-subtitle">ROS2, CUDA, TensorRT, VSLAM based software pipelines</div>
                             <div class="node-details">
                                 <strong>Proven Stack:</strong><br>
                                 Zero-copy CUDA pipelines, memory-efficient spatial hash maps, and real-time VSLAM deployed on Jetson Orin Nano at &lt; 20ms inference.
@@ -210,10 +288,10 @@
                         <div class="flow-node foundation-sim">
                             <span class="node-icon">🧪</span>
                             <div class="node-title">Simulation & Training</div>
-                            <div class="node-subtitle">Gazebo, Isaac Sim, PPO</div>
+                            <div class="node-subtitle">Gazebo, Isaac Sim, PPO, Blender, Texture, URDF, USD</div>
                             <div class="node-details">
                                 <strong>Proven Stack:</strong><br>
-                                High-fidelity digital twins, running thousands of PPO training episodes. Established robust Sim-to-Real pipelines for continuous testing.
+                                High-fidelity simualtion environments for robotic algorithm development, running thousands of PPO training episodes. Established robust Sim-to-Real pipelines for continuous testing and prototyping.
                             </div>
                         </div>
                     </div>
